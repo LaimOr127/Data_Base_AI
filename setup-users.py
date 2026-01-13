@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 import json
 import sys
+import os
 
 # Читаем список пользователей
-with open('digroup-test/users_db/users_list.txt', 'r', encoding='utf-8') as f:
+users_file = 'users_db/users_list.txt'
+if not os.path.exists(users_file):
+    users_file = 'digroup-test/users_db/users_list.txt'
+
+with open(users_file, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # Парсим пользователей
