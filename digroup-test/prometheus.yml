@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'digroup'
+    static_configs:
+      - targets: ['digroup-test:6806']

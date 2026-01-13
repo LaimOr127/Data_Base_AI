@@ -1,0 +1,30 @@
+{
+  "local-fileposition": {
+    "20200923234011-ieuun1p": {
+      "endId": "20240508005305-nb98gz5",
+      "rootId": "20200923234011-ieuun1p",
+      "scrollTop": 0,
+      "startId": "20241125224615-dwfqru1"
+    },
+    "20260112163849-u63gb4k": {
+      "endId": "20260112163849-3bk3gl7",
+      "rootId": "20260112163849-u63gb4k",
+      "scrollTop": 0,
+      "startId": "20260112163849-3bk3gl7"
+    }
+  },
+  "local-filespaths": [
+    {
+      "notebookId": "20210808180117-6v0mkxr",
+      "openPaths": [
+        "/20200923234011-ieuun1p.sy"
+      ]
+    },
+    {
+      "notebookId": "20251230113409-4y9ye0l",
+      "openPaths": [
+        "/20260112163849-u63gb4k.sy"
+      ]
+    }
+  ]
+}

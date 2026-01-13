@@ -1,0 +1,26 @@
+[
+  {
+    "rootID": "20260112163849-u63gb4k",
+    "icon": "",
+    "title": "Тест дерева",
+    "viewedAt": 1768297466,
+    "closedAt": 0,
+    "openAt": 1768297466
+  },
+  {
+    "rootID": "20260113013222-73kfe4y",
+    "icon": "",
+    "title": "Тестовый блокнот",
+    "viewedAt": 1768258476,
+    "closedAt": 0,
+    "openAt": 1768258476
+  },
+  {
+    "rootID": "20260112164912-7d3dxyd",
+    "icon": "",
+    "title": "Привет",
+    "viewedAt": 1768258191,
+    "closedAt": 0,
+    "openAt": 1768258191
+  }
+]

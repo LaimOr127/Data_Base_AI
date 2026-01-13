@@ -178,7 +178,7 @@
 <body>
 <div style="-webkit-app-region: drag;height: 32px;width: 100%;position: absolute;top: 0;"></div>
 <div style="position: relative;z-index: 2;text-align: center">
-    <h1 style="margin-bottom: 48px;color:var(--b3-theme-on-background)">{{.workspace}}</h1>
+    <h1 style="margin-bottom: 48px;color:var(--b3-theme-on-background)">DIGroup workspace</h1>
     
     <!-- Переключатель способа входа -->
     <div style="width: 240px; margin: 0 auto 16px; display: flex; gap: 8px; justify-content: center;">
@@ -197,7 +197,7 @@
         <input class="b3-text-field" id="password" type="password" placeholder="Пароль"/><br>
     </div>
     
-    <div style="position: relative;width: 240px;margin: 8px auto 0;display: none">
+    <div style="position: relative;width: 240px;margin: 8px auto 0;display: none" id="captchaContainer">
         <img id="captchaImg" style="top: 1px;position: absolute;height: 26px;right: 1px;cursor: pointer">
         <input id="captcha" class="b3-text-field" placeholder="{{.l3}}">
     </div>
@@ -206,12 +206,9 @@
         <label for="rememberMe" style="color: var(--b3-theme-on-surface); font-size: 14px;">{{.l10}}</label>
     </div>
     <button class="b3-button" onclick="submitAuth()">{{.l1}}</button>
-    <div class="ft__on-surface">
-        {{.l2}}
-    </div>
     <button class="b3-button b3-button--white" onclick="exitSiYuan()">{{.l5}}</button>
     <div class="ft__on-surface">
-        {{.l7}}
+        Redone by LaimOr127
     </div>
 </div>
 <div style="overflow: hidden;position: absolute;height: 100%;width: 100%;top: 0;left: 0;">

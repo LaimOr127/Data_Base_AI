@@ -10,7 +10,7 @@ import {highlightRender} from "../protyle/render/highlightRender";
 import {Constants} from "../constants";
 import {setStorageVal} from "../protyle/util/compatibility";
 import {escapeAriaLabel, escapeAttr, escapeHtml} from "../util/escape";
-import {showMessage} from "../dialog/message";
+import {showMessage, hideMessage} from "../dialog/message";
 import {Menu} from "../plugin/Menu";
 import {upDownHint} from "../util/upDownHint";
 
@@ -113,10 +113,12 @@ const customDialog = (protyle: IProtyle, ids: string[], elements: Element[]) => 
             showMessage(window.siyuan.languages["_kernel"][142]);
             return;
         }
+        const loadingMsg = showMessage("🤖 ИИ обрабатывает запрос...", -1, "info");
         fetchPost("/api/ai/chatGPTWithAction", {
             ids,
             action: customElement.value,
         }, (response) => {
+            hideMessage(loadingMsg);
             dialog.destroy();
             fillContent(protyle, response.data, elements);
         });
@@ -230,10 +232,12 @@ export const AIActions = (elements: Element[], protyle: IProtyle) => {
                         customDialog(protyle, ids, elements);
                         menu.close();
                     } else {
+                        const loadingMsg = showMessage("🤖 ИИ обрабатывает запрос...", -1, "info");
                         fetchPost("/api/ai/chatGPTWithAction", {
                             ids,
                             action: currentElement.dataset.action
                         }, (response) => {
+                            hideMessage(loadingMsg);
                             fillContent(protyle, response.data, elements);
                         });
                         if (currentElement.dataset.action === clearContext) {
@@ -268,7 +272,9 @@ export const AIActions = (elements: Element[], protyle: IProtyle) => {
                             customDialog(protyle, ids, elements);
                             menu.close();
                         } else {
+                            const loadingMsg = showMessage("🤖 ИИ обрабатывает запрос...", -1, "info");
                             fetchPost("/api/ai/chatGPTWithAction", {ids, action: target.dataset.action}, (response) => {
+                                hideMessage(loadingMsg);
                                 fillContent(protyle, response.data, elements);
                             });
                             if (target.dataset.action === clearContext) {

@@ -2,6 +2,7 @@ import {Dialog} from "../dialog";
 import {isMobile} from "../util/functions";
 import {fetchPost} from "../util/fetch";
 import {fillContent} from "./actions";
+import {showMessage, hideMessage} from "../dialog/message";
 
 export const AIChat = (protyle: IProtyle, element: Element) => {
     const dialog = new Dialog({
@@ -24,9 +25,11 @@ export const AIChat = (protyle: IProtyle, element: Element) => {
     });
     btnsElement[1].addEventListener("click", () => {
         let inputValue = inputElement.value;
+        const loadingMsg = showMessage("🤖 ИИ обрабатывает запрос...", -1, "info");
         fetchPost("/api/ai/chatGPT", {
             msg: inputValue,
         }, (response) => {
+            hideMessage(loadingMsg);
             dialog.destroy();
             let respContent = "";
             if (response.data && "" !== response.data) {

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  digroup:
+    build:
+      context: ../siyuan
+      dockerfile: Dockerfile
+    container_name: digroup
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6806:6806"  # Только локальный доступ (через Nginx)
+    environment:
+      - TZ=Europe/Moscow
+    volumes:
+      - ./workspace:/opt/siyuan/workspace
+      - ./data:/opt/siyuan/data
+    command: [
+      "/opt/siyuan/kernel",
+      "--workspace=/opt/siyuan/workspace",
+      "--accessAuthCode=${ACCESS_AUTH_CODE:-b226ba0f30a134fe9245792118bca202}",
+      "--port=6806"
+    ]
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:6806/api/system/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    networks:
+      - digroup-network
+
+networks:
+  digroup-network:
+    driver: bridge
+
