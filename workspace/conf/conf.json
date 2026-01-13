@@ -472,7 +472,7 @@
   "readonly": false,
   "localIPs": [
     "127.0.0.1",
-    "172.18.0.4",
+    "172.18.0.2",
     "[::1]"
   ],
   "accessAuthCode": "b226ba0f30a134fe9245792118bca202",
@@ -1286,13 +1286,13 @@
     "petalDisabled": false
   },
   "stat": {
-    "treeCount": 70,
+    "treeCount": 3,
     "cTreeCount": 100,
-    "blockCount": 7846,
+    "blockCount": 5454,
     "cBlockCount": 10000,
-    "dataSize": 4895514,
+    "dataSize": 953855,
     "cDataSize": 104857600,
-    "assetsSize": 2508613,
+    "assetsSize": 0,
     "cAssetsSize": 104857600
   },
   "api": {

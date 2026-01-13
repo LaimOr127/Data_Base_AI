@@ -1,0 +1,77 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# SiYuan workspace data (should be local only)
+workspace/data/
+workspace/history/
+workspace/temp/
+workspace/conf/conf.json
+workspace/conf/conf.json.backup.*
+
+# Backups
+backups/
+*.tar.gz
+*.zip
+
+# Logs
+logs/
+*.log
+
+# Test directories
+digroup-test/
+test/
+
+# Large binaries (should not be in git)
+**/pandoc/bin/pandoc
+**/electron/dist/Electron.app/
+**/Electron Framework.framework/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Data directories
+data/
