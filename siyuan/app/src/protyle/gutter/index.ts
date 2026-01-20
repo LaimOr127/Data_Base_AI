@@ -2047,15 +2047,16 @@ export class Gutter {
             !["NodeThematicBreak", "NodeBlockQueryEmbed", "NodeIFrame", "NodeHTMLBlock", "NodeWidget", "NodeVideo", "NodeAudio"].includes(type) &&
             getContenteditableElement(nodeElement)?.textContent.trim() !== "" &&
             (type !== "NodeCodeBlock" || (type === "NodeCodeBlock" && !nodeElement.getAttribute("data-subtype")))) {
-            window.siyuan.menus.menu.append(new MenuItem({
-                id: "wechatReminder",
-                icon: "iconMp",
-                label: window.siyuan.languages.wechatReminder,
-                ignore: window.siyuan.config.readonly,
-                click() {
-                    openWechatNotify(nodeElement);
-                }
-            }).element);
+            // WeChat reminder removed per user request
+            // window.siyuan.menus.menu.append(new MenuItem({
+            //     id: "wechatReminder",
+            //     icon: "iconMp",
+            //     label: window.siyuan.languages.wechatReminder,
+            //     ignore: window.siyuan.config.readonly,
+            //     click() {
+            //         openWechatNotify(nodeElement);
+            //     }
+            // }).element);
         }
         if (type !== "NodeThematicBreak" && !window.siyuan.config.readonly) {
             const isCardMade = nodeElement.hasAttribute(Constants.CUSTOM_RIFF_DECKS);

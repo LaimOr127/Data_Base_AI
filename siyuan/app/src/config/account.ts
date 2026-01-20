@@ -100,7 +100,7 @@ export const account = {
         }
         return `<div class="fn__flex config-account">
 <div class="b3-form__space config-account__center">
-    <div class="config-account__form" id="form1">
+    <div class="config-account__form fn__none" id="form1">
         <div class="b3-form__icon">
             <svg class="b3-form__icon-icon"><use xlink:href="#iconAccount"></use></svg>
             <input id="userName" class="b3-text-field fn__block b3-form__icon-input" placeholder="${window.siyuan.languages.accountName}">

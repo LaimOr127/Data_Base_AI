@@ -148,12 +148,34 @@ sudo systemctl stop digroup
 sudo systemctl status digroup
 ```
 
+## Доступ через домен
+
+Для доступа к сервисам через домен (например, digroupdb.duckdns.org) с SSL:
+
+```bash
+# 1. Настройте Nginx
+sudo ./setup-nginx.sh digroupdb.duckdns.org
+
+# 2. Настройте DNS записи (см. НАСТРОЙКА_ДОМЕНА.md)
+
+# 3. Настройте SSL
+sudo ./setup-ssl.sh digroupdb.duckdns.org
+```
+
+После настройки сервисы будут доступны:
+- **DIGroup**: https://digroupdb.duckdns.org
+- **Grafana**: https://grafana.digroupdb.duckdns.org
+- **Prometheus**: https://prometheus.digroupdb.duckdns.org
+- **Node Exporter**: https://node-exporter.digroupdb.duckdns.org
+
+Подробная инструкция: `НАСТРОЙКА_ДОМЕНА.md`
+
 ## Безопасность
 
 1. Измените код доступа в `.env`
 2. Измените пароль Grafana
 3. Настройте файрволл (только для Linux серверов)
-4. Используйте Nginx для SSL (см. DEPLOYMENT.md)
+4. Используйте Nginx для SSL (см. НАСТРОЙКА_ДОМЕНА.md)
 
 ## Требования
 
@@ -166,6 +188,7 @@ sudo systemctl status digroup
 
 - `DEPLOYMENT.md` - Развертывание на серверах
 - `LINUX_DEPLOY.md` - Детальная инструкция для Linux
+- `НАСТРОЙКА_ДОМЕНА.md` - Настройка доступа через домен с SSL
 - `ИНСТРУКЦИЯ.md` - Руководство пользователя
 - `НАСТРОЙКА_ИИ.md` - Настройка ИИ
 - `МОНИТОРИНГ_И_БЭКАПЫ.md` - Подробности о мониторинге и бэкапах

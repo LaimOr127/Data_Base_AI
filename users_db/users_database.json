@@ -1,1181 +1,790 @@
-[
-  {
-    "id": 1,
-    "full_name": "Шулаков Андрей Дмитриевич",
-    "login": "sha",
-    "password": "sha123",
-    "password_hash": "ec2f23bf35c260a8441313230bbcc8e19912f2aba0f1d1159f1b1ca661a414db",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 2,
-    "full_name": "Фролов Константин Сергеевич",
-    "login": "fk",
-    "password": "fk123",
-    "password_hash": "1bd35d21a04a28dacb4f692a8c1151253781290e8814bbd68a00544b5db1bf9d",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 3,
-    "full_name": "Фролова Юлия Алексеевна",
-    "login": "fyu",
-    "password": "fyu123",
-    "password_hash": "39b3377d310e8dc82a41691a142748681e88238f4e7ae62f956e4f7e192418ab",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 4,
-    "full_name": "Крапивина Екатерина Алексеевна",
-    "login": "ke",
-    "password": "ke123",
-    "password_hash": "a513695324ec5f8f1fea8b97dac2ee189ae9d08cf00b59f36096959b6b89934b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 5,
-    "full_name": "Шулакова Мария Сергеевна",
-    "login": "shm",
-    "password": "shm123",
-    "password_hash": "98189157da02785299b19e65fa4a5a39e4cfc5b8c57b6b92e902f68208a0716f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 6,
-    "full_name": "Медведева Марина Сергеевна",
-    "login": "mm",
-    "password": "mm123",
-    "password_hash": "803afea717d06e0421753833a959073064ebf7d05324d18d8254bb562d71e781",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 7,
-    "full_name": "Пташкина Светлана Сергеевна",
-    "login": "ps",
-    "password": "ps123",
-    "password_hash": "d82cff8c766e6f52e11516f3c732c467e3370590097876e311086c3b839b3b5f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 8,
-    "full_name": "Артемьева Валерия Сергеевна",
-    "login": "av",
-    "password": "av123",
-    "password_hash": "d194a414be725960a10814808282faf6d78cfb6bf7c9bb18586e19bd98caa31c",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 9,
-    "full_name": "Литвинюк Татьяна Юрьевна",
-    "login": "lt",
-    "password": "lt123",
-    "password_hash": "350cf84e8c8c60d2ad4efcb1b95cdeeae7155f18e967aa79cff787873d29012a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 10,
-    "full_name": "Данилкина Юлия Геннадьевна",
-    "login": "dyu",
-    "password": "dyu123",
-    "password_hash": "dac863a40bdbcfc223d392be74cdc5f1eabda024f816be78b23653c59ed9c8ab",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 11,
-    "full_name": "Ментьев Олег Сергеевич",
-    "login": "mo",
-    "password": "mo123",
-    "password_hash": "a65accd68f911330575c6bbdca3191c895aa474d7c3c874913ffec5214fe198a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 12,
-    "full_name": "Припадчев Алексей Анатольевич",
-    "login": "pa",
-    "password": "pa123",
-    "password_hash": "b0776bd38444efef70b99c7fcbfaf6ac1fedcff5cdf69c67ed939686144257db",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 13,
-    "full_name": "Ахапкина Яна Владимировна",
-    "login": "aya",
-    "password": "aya123",
-    "password_hash": "6b4e59de8a6e7508abda84cbda834f3e2ce8b8a5587d311ec81715c69a30a1d1",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 14,
-    "full_name": "Грачев Александр Викторович",
-    "login": "ga",
-    "password": "ga123",
-    "password_hash": "f51d4f8c8527620e2dfeea345fc9d803d9e8fd97ee9a0e315c4298969df08a55",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 15,
-    "full_name": "Лысов Михаил Сергеевич",
-    "login": "lm",
-    "password": "lm123",
-    "password_hash": "89f47494d297f9d32d560ed935ab7628ce85107354c58f48fe3208edd663cb3b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 16,
-    "full_name": "Сетяев Алексей Васильевич",
-    "login": "sa",
-    "password": "sa123",
-    "password_hash": "dcb4b25a9059cc676c24dc36bd01784ce3acbaf94d6bcfc54bbe84deaf95ae93",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 17,
-    "full_name": "Воллерт Екатерина Юрьевна",
-    "login": "ve",
-    "password": "ve123",
-    "password_hash": "1498030328bf4b1d68cc13fad37dfc79495e7c868889f0535fae6552fadc646e",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 18,
-    "full_name": "Павлова Кристина Игоревна",
-    "login": "pk",
-    "password": "pk123",
-    "password_hash": "ed7b75c48abbe159798a83021142cb3a75c4c66f1b450a1dedba3f0610b4df71",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 19,
-    "full_name": "Петрова Маргарита Витальевна",
-    "login": "pm",
-    "password": "pm123",
-    "password_hash": "ae087349bb953601482c9c52169257c0cb0371cbac3d921b5896a9aba8cc8a43",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 20,
-    "full_name": "Алексеева Дина Геннадьевна",
-    "login": "ad",
-    "password": "ad123",
-    "password_hash": "d54f20149895ccca0a0e5c0b1ef94dcbe739d1426f0d8ea391d450989c0abf06",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 21,
-    "full_name": "Гельман Наталия Евгеньевна",
-    "login": "gn",
-    "password": "gn123",
-    "password_hash": "cef5417930bf6bd54867be408e6fd1895e4696a31c32e9dff098d8d5b4690b0b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 22,
-    "full_name": "Ермолаев Станислав Федорович",
-    "login": "es",
-    "password": "es123",
-    "password_hash": "fc15fa580ba60a1ab19780694f886e9932204e5b500f2292bdd63c6f8151e92a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 23,
-    "full_name": "Колядина Надежда Владимировна",
-    "login": "kn",
-    "password": "kn123",
-    "password_hash": "7e1ef6c95ab6d9c42b19e30888c1263903868ff85ce1a2cdc6bfc4ebeafb0703",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 24,
-    "full_name": "Баринов Сергей Петрович",
-    "login": "bs",
-    "password": "bs123",
-    "password_hash": "429568492dead2af7988cbef7314c33c756c7ff15b476b52df6ed8a4a10051f3",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 25,
-    "full_name": "Колесникова Олеся Леонидовна",
-    "login": "ko",
-    "password": "ko123",
-    "password_hash": "20be9c713d39fbd9c6b3b1e8b6938db08d4b8574e9acf03c85ea3395b609d450",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 26,
-    "full_name": "Сабаев Алексей Юрьевич",
-    "login": "sa1",
-    "password": "sa123",
-    "password_hash": "dcb4b25a9059cc676c24dc36bd01784ce3acbaf94d6bcfc54bbe84deaf95ae93",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 27,
-    "full_name": "Максимова Елена Владимировна",
-    "login": "me",
-    "password": "me123",
-    "password_hash": "06a7ae3c7a22710c03a9ba2bb36179457478a0aa63b530082b78b544e535cb0b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 28,
-    "full_name": "Чугунова Елена Валерьяновна",
-    "login": "che",
-    "password": "che123",
-    "password_hash": "7aa4d21664a5bcc516ac3d757be6c4efe1883d1ca716697e9c33b04de035012b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 29,
-    "full_name": "Агабабова Виктория Сергеевна",
-    "login": "av1",
-    "password": "av123",
-    "password_hash": "d194a414be725960a10814808282faf6d78cfb6bf7c9bb18586e19bd98caa31c",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 30,
-    "full_name": "Корнюшонкова Татьяна Валерьевна",
-    "login": "kt",
-    "password": "kt123",
-    "password_hash": "a4025e53e9f32be7e23c58269074981f6f05766ef933c8ee642d0e1706ee5ac0",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 31,
-    "full_name": "Васюкова Анна Сергеевна",
-    "login": "va",
-    "password": "va123",
-    "password_hash": "d5912599c496533f112d37f2325b345e86cf53a6374363f0759d05931561e52a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 32,
-    "full_name": "Деева Тамара Вячеславовна",
-    "login": "dt",
-    "password": "dt123",
-    "password_hash": "19cbd4ac30230225be565488d2fe563c10dc30ba5048dd8b55511173e8b128cc",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 33,
-    "full_name": "Емельянова Надежда Николаевна",
-    "login": "en",
-    "password": "en123",
-    "password_hash": "9608fa3e703fde1fa208d9b481c7e8add67a62362bf263ce39c572dc3c67575d",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 34,
-    "full_name": "Венкова Мария Александровна",
-    "login": "vm",
-    "password": "vm123",
-    "password_hash": "0ed9ba390e86a1dd957ab6e061fc196de776e3b228056d86c7a9516abebe08c2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 35,
-    "full_name": "Иванова Лилия Борисовна",
-    "login": "il",
-    "password": "il123",
-    "password_hash": "d14ab9f9ddaa89dc5f5b20b285c40dfcfb06c8553ab0b96a900a162559711194",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 36,
-    "full_name": "Хунцария Елена Николаевна",
-    "login": "he",
-    "password": "he123",
-    "password_hash": "f5d411af0f2c5a6d39eb8f2aac58b0ad88c8d0e4271025a44b48bceac97677e7",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 37,
-    "full_name": "Терехова Светлана Алексеевна",
-    "login": "ts",
-    "password": "ts123",
-    "password_hash": "d7354b0d4e8e4c85deef43edaf135481a4297a0fa62ee5508df814cd180b9925",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 38,
-    "full_name": "Зуев Андрей Александрович",
-    "login": "za",
-    "password": "za123",
-    "password_hash": "7f60a106d8eaeac1b88dbfca1074005f6f9e4734dffa79176aa67049ffafbd2a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 39,
-    "full_name": "Ромашов Антон Игоревич",
-    "login": "ra",
-    "password": "ra123",
-    "password_hash": "a75a15cddff8b26b984b653af857e2cd6c6581816919eeed6959ad61f098cfb5",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 40,
-    "full_name": "Ерохина Екатерина Сергеевна",
-    "login": "ee",
-    "password": "ee123",
-    "password_hash": "953986c1f1d118fa7321beb6bba06d7089ab417ed6c1f2445f08caa5497b9c62",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 41,
-    "full_name": "Ильин Александр Владимирович",
-    "login": "ia",
-    "password": "ia123",
-    "password_hash": "8899d1a012ff467fd4583be86ccf798bc07c205e16523bd2a801ff39b86f28d6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 42,
-    "full_name": "Ткаченко Борис  Васильевич",
-    "login": "tb",
-    "password": "tb123",
-    "password_hash": "10858763aa681790d2ec443f89c52088a71ccb0e45bf2012ac1878d6e8b32435",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 43,
-    "full_name": "Федоров Сергей Валерьевич",
-    "login": "fs",
-    "password": "fs123",
-    "password_hash": "b3e31c4d1813fde305cc327e7c9b57dd6c57583304704987c7ae688b29bda7a5",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 44,
-    "full_name": "Яковлев Александр Алексеевич",
-    "login": "yaa",
-    "password": "yaa123",
-    "password_hash": "90dee3ef4b01c306d8f24ddd0b0650c2ef09f754cf6785846971a6b170d52746",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 45,
-    "full_name": "Сидоров Петр Святославович",
-    "login": "sp",
-    "password": "sp123",
-    "password_hash": "c66effaa602dbc47a97629bc01a87a8e612f5473c5e674feea03c6cd2f49a58d",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 46,
-    "full_name": "Билецкая Ульяна Владимировна",
-    "login": "bu",
-    "password": "bu123",
-    "password_hash": "d041f6dd2d671f68144bd4d667f96a6146dbf2ed0f71f19b532ce1e2826f8f92",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 47,
-    "full_name": "Тарасов Даниил Анатольевич",
-    "login": "td",
-    "password": "td123",
-    "password_hash": "5e94b3408836284fd5d8025920615a8bee53ae04ba03ba77b111534de22d3c82",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 48,
-    "full_name": "Коморной Даниил Денисович",
-    "login": "kd",
-    "password": "kd123",
-    "password_hash": "c4589a15fb278bc88f8c69ca5c8264a95fa50b996ed1460580daa0c8437bbb4a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 49,
-    "full_name": "Куницын Илья Владимирович",
-    "login": "ki",
-    "password": "ki123",
-    "password_hash": "e0ec4f16fa6570040b9b67705d335c54e702c8587c6e660dda2bb87608e20ca6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 50,
-    "full_name": "Понкратов Дмитрий Федорович",
-    "login": "pd",
-    "password": "pd123",
-    "password_hash": "6847ba384f14def183031d95a848c2376809f650987f2b1b6b9fdace1c99ef90",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 51,
-    "full_name": "Поляков Максим Евгеньевич",
-    "login": "pm1",
-    "password": "pm123",
-    "password_hash": "ae087349bb953601482c9c52169257c0cb0371cbac3d921b5896a9aba8cc8a43",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 52,
-    "full_name": "Мокроусов Николай Игоревич",
-    "login": "mn",
-    "password": "mn123",
-    "password_hash": "8c7c7ae3323de1bf13bbf840359099b2834f17da6f14d414a4d92a4651c64a6b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 53,
-    "full_name": "Лебедев Артем Викторович",
-    "login": "la",
-    "password": "la123",
-    "password_hash": "017039f23788c42b5f25f9c6f9958ad369b9e94ecadb4ca83449c6fff9f35959",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 54,
-    "full_name": "Колдин Андрей Георгиевич",
-    "login": "ka",
-    "password": "ka123",
-    "password_hash": "01b413b0d8e5b16f5a8f7ae36f9d2d76c60dfe4aad472b57a28d75bd007ec7d6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 55,
-    "full_name": "Королев Кирилл Петрович",
-    "login": "kk",
-    "password": "kk123",
-    "password_hash": "5810ad6e8bdd9dceda67380257239fcfdc6193c4e39ce66c50af3600f5d4a2fc",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 56,
-    "full_name": "Миронов Александр Эдуардович",
-    "login": "ma",
-    "password": "ma123",
-    "password_hash": "c3491ddc255cc168b051d83b5ddbee62d223b4947d867794b6d6308961dab1b2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 57,
-    "full_name": "Курдюмов Юрий Александрович",
-    "login": "kyu",
-    "password": "kyu123",
-    "password_hash": "bf3f7b2d13721bd368ca0b950e697d461ae9dab97280771063fdd21005a5f71f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 58,
-    "full_name": "Нефедов Алексей Владимирович",
-    "login": "na",
-    "password": "na123",
-    "password_hash": "aa4cc64fcc43fae06830553e34fbdca2022411409661dedef793c07e1a685c31",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 59,
-    "full_name": "Долматов Павел Алексеевич",
-    "login": "dp",
-    "password": "dp123",
-    "password_hash": "7e089ba105e251e87df7b7924887af2ead95d14b1b3b21ea49e956540deb7db4",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 60,
-    "full_name": "Фролов Алексей Андреевич",
-    "login": "fa",
-    "password": "fa123",
-    "password_hash": "cbf775d0fb4b9b4ad7f7b7cec0f00d8ed4646e38466a77e5a5dbd9febb824e31",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 61,
-    "full_name": "Мирзалиев Рустам Бюльбюльевич",
-    "login": "mr",
-    "password": "mr123",
-    "password_hash": "99e6b4985e4092ce35f0d26f43a18d528d3d71bfeae7bc0f8680580be7b168c2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 62,
-    "full_name": "Машковцев Дмитрий Сергеевич",
-    "login": "md",
-    "password": "md123",
-    "password_hash": "d34ba07574f60f028f3946fbf71d2bafa520e784dd9fee636a55c4c5589da3df",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 63,
-    "full_name": "Ильин Павел Витальевич",
-    "login": "ip",
-    "password": "ip123",
-    "password_hash": "598b75e07f28465f22ea9f9366fec36562a68f149d117e0d540b2ed233f40c49",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 64,
-    "full_name": "Бондарев Евгений Андреевич",
-    "login": "be",
-    "password": "be123",
-    "password_hash": "9d2be6ce615891fa20a35d06df52cd320fa3784d696341e355565af3c4b3743f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 65,
-    "full_name": "Баулин Василий Викторович",
-    "login": "bv",
-    "password": "bv123",
-    "password_hash": "fd5b3812ab2401e4115e0e9fee648fab9d77f90a4c20b5489b62e237db5fd657",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 66,
-    "full_name": "Моисеев Владимир Сергеевич",
-    "login": "mv",
-    "password": "mv123",
-    "password_hash": "acc17ea19596a86c60a4c813a340b4340d443d0821f3d71215367a27ce34ff1f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 67,
-    "full_name": "Карпов Сергей Николаевич",
-    "login": "ks",
-    "password": "ks123",
-    "password_hash": "59fc47eed200691035696d306d9d50c8c54c26da1a16be1e3fecc0fd4d453f28",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 68,
-    "full_name": "Чухутин Юрий Александрович",
-    "login": "chyu",
-    "password": "chyu123",
-    "password_hash": "3cd900dc7b10632819584676490885a9a57c10037997d1399bad5a3f37f1aa19",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 69,
-    "full_name": "Будкин Денис Александрович",
-    "login": "bd",
-    "password": "bd123",
-    "password_hash": "7cb3a3f052cc573f9e244890e3e7941f1c8ac3663ea5e9dd70a7f7ebf04f920c",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 70,
-    "full_name": "Верещагин Антон Александрович",
-    "login": "va1",
-    "password": "va123",
-    "password_hash": "d5912599c496533f112d37f2325b345e86cf53a6374363f0759d05931561e52a",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 71,
-    "full_name": "Фатиев Рустам Русланович",
-    "login": "fr",
-    "password": "fr123",
-    "password_hash": "9fa9280fbf28a12ae237b00e901a636a8f3b85efe99c80576e2c7f1f9b1fb05f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 72,
-    "full_name": "Куранов Андрей Сергеевич",
-    "login": "ka1",
-    "password": "ka123",
-    "password_hash": "01b413b0d8e5b16f5a8f7ae36f9d2d76c60dfe4aad472b57a28d75bd007ec7d6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 73,
-    "full_name": "Кузьмин Алексей Сергеевич",
-    "login": "ka2",
-    "password": "ka123",
-    "password_hash": "01b413b0d8e5b16f5a8f7ae36f9d2d76c60dfe4aad472b57a28d75bd007ec7d6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 74,
-    "full_name": "Синельников Виктор Геннадьевич",
-    "login": "sv",
-    "password": "sv123",
-    "password_hash": "028b7c477525aa3763b1175ddda1e8ba452a20a4b7a8eae8a217b8b601329d74",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 75,
-    "full_name": "Ващенко Владимир Владимирович",
-    "login": "vv",
-    "password": "vv123",
-    "password_hash": "337b168353e0cb4f444d00ef487070d85b4a0b9580dedeedfdedcff8c98d96bc",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 76,
-    "full_name": "Мусиенко Андрей Николаевич",
-    "login": "ma1",
-    "password": "ma123",
-    "password_hash": "c3491ddc255cc168b051d83b5ddbee62d223b4947d867794b6d6308961dab1b2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 77,
-    "full_name": "Сосунов Алексей Александрович",
-    "login": "sa2",
-    "password": "sa123",
-    "password_hash": "dcb4b25a9059cc676c24dc36bd01784ce3acbaf94d6bcfc54bbe84deaf95ae93",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 78,
-    "full_name": "Александров Алексей Сергеевич",
-    "login": "aa",
-    "password": "aa123",
-    "password_hash": "6c69edc1dbbd3ef870c5252accdf9535964eb9234d8979650267ac14b26ade40",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 79,
-    "full_name": "Сутягин Максим Александрович",
-    "login": "sm",
-    "password": "sm123",
-    "password_hash": "3982ce84742602d61bc61f9ebde476d007cf6e5a7ca13201c8a1b5d843d38382",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 80,
-    "full_name": "Шибанов Александр Сергеевич",
-    "login": "sha1",
-    "password": "sha123",
-    "password_hash": "ec2f23bf35c260a8441313230bbcc8e19912f2aba0f1d1159f1b1ca661a414db",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 81,
-    "full_name": "Матвеев Александр Александрович",
-    "login": "ma2",
-    "password": "ma123",
-    "password_hash": "c3491ddc255cc168b051d83b5ddbee62d223b4947d867794b6d6308961dab1b2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 82,
-    "full_name": "Иванов Роман Александрович",
-    "login": "ir",
-    "password": "ir123",
-    "password_hash": "593f173dc3771e44b8368a0cdc2d0dd4c06baac9a54354942a402e256b00cf90",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 83,
-    "full_name": "Васильев Сергей Яковлевич",
-    "login": "vs",
-    "password": "vs123",
-    "password_hash": "1daaa738478ed30f6c61cf23084f926a742af93f443b52664f7eb8be7a6fb8de",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 84,
-    "full_name": "Сощенко Дмитрий Леонтьевич",
-    "login": "sd",
-    "password": "sd123",
-    "password_hash": "836a5a31d5a76490b27b3babed205a9de1420706714d51bdc115555618d28ee2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 85,
-    "full_name": "Гильмутдинов Айнур Нургаянович",
-    "login": "ga1",
-    "password": "ga123",
-    "password_hash": "f51d4f8c8527620e2dfeea345fc9d803d9e8fd97ee9a0e315c4298969df08a55",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 86,
-    "full_name": "Гладков Илья Васильевич",
-    "login": "gi",
-    "password": "gi123",
-    "password_hash": "6fb811d2bef591b2a62bdcbad73effd96f1270e8e3bab909062a824535512718",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 87,
-    "full_name": "Бредников Роман Владимирович",
-    "login": "br",
-    "password": "br123",
-    "password_hash": "596436301e3425fc9d0c066c54250da087478d32ebd4deda21148e7a90813ba0",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 88,
-    "full_name": "Камынов Павел Васильевич",
-    "login": "kp",
-    "password": "kp123",
-    "password_hash": "199768e71f67852f8c16329e29f15dc25518e825deb74a910cf3c98ab598001b",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 89,
-    "full_name": "Трушин Виктор Юрьевич",
-    "login": "tv",
-    "password": "tv123",
-    "password_hash": "3f5aa95c46b707603205b429e21abe10f351d767a0d52490a253fc84e9a027c8",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 90,
-    "full_name": "Андреев Артем Александрович",
-    "login": "aa1",
-    "password": "aa123",
-    "password_hash": "6c69edc1dbbd3ef870c5252accdf9535964eb9234d8979650267ac14b26ade40",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 91,
-    "full_name": "Кочеринский Владислав Александрович",
-    "login": "kv",
-    "password": "kv123",
-    "password_hash": "ce819396d6fa0777574308da2bd5936a651c50795af9154a15ab269330581082",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 92,
-    "full_name": "Шадрин Никита Айдарович",
-    "login": "shn",
-    "password": "shn123",
-    "password_hash": "00c1a538cf2ceb1e080e696e74172a134f696f0dda968cd0ed6fddf329e8867f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 93,
-    "full_name": "Пономарев Сергей Андреевич",
-    "login": "ps1",
-    "password": "ps123",
-    "password_hash": "d82cff8c766e6f52e11516f3c732c467e3370590097876e311086c3b839b3b5f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 94,
-    "full_name": "Панферов Сергей Викторович",
-    "login": "ps2",
-    "password": "ps123",
-    "password_hash": "d82cff8c766e6f52e11516f3c732c467e3370590097876e311086c3b839b3b5f",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 95,
-    "full_name": "Зайцев Семён Дмитриевич",
-    "login": "zs",
-    "password": "zs123",
-    "password_hash": "ce32019b00d8c38e222865a37b4934698cc69b02df15cad0df1d08eedec72ab0",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 96,
-    "full_name": "Селиванов Юрий Александрович",
-    "login": "syu",
-    "password": "syu123",
-    "password_hash": "ce249d0aad0a5a2880c0a304766567275419c1defb003583cf94de66dd824f25",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 97,
-    "full_name": "Селиванов Юрий Александрович",
-    "login": "syu1",
-    "password": "syu123",
-    "password_hash": "ce249d0aad0a5a2880c0a304766567275419c1defb003583cf94de66dd824f25",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 98,
-    "full_name": "Салагор Роман Андреевич",
-    "login": "sr",
-    "password": "sr123",
-    "password_hash": "3a64ee447bde9be100b9fe489e2eacfab1c2acd9fd8a62f6bd516d1ddc644d77",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 99,
-    "full_name": "Астафьева Оксана Васильевна",
-    "login": "ao",
-    "password": "ao123",
-    "password_hash": "613304b4701d0f072a0dee3e3be8e2350ae5001edefb68972bb4ab2c74dc1c62",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 100,
-    "full_name": "Мавлитов Руслан Нафикович",
-    "login": "mr1",
-    "password": "mr123",
-    "password_hash": "99e6b4985e4092ce35f0d26f43a18d528d3d71bfeae7bc0f8680580be7b168c2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 101,
-    "full_name": "Дегтярев Игорь Михайлович",
-    "login": "di",
-    "password": "di123",
-    "password_hash": "f46d78420f32ebdae515a0734f8b1741bd03875bdf8e19a43e74ab4db63a87ce",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 102,
-    "full_name": "Вершинин Никита Андреевич",
-    "login": "vn",
-    "password": "vn123",
-    "password_hash": "e67e1fb528cdc9e9f0d1cd5af4b2d4cf7d5946ee11d21b73744b0bc89990d068",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 103,
-    "full_name": "Акылбек уулу Айбек",
-    "login": "au",
-    "password": "au123",
-    "password_hash": "8aa65990611bf8c8eff44388d5865e91c835317eab848ea9b81a93b6e1a15d69",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 104,
-    "full_name": "Шкулев Вадим Владимирович",
-    "login": "shv",
-    "password": "shv123",
-    "password_hash": "37e04ef5cd0a56aaddb28c40f9f9a8086c082968079cd74ea0d6d41cb583eb94",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 105,
-    "full_name": "Левин Александр Николаевич",
-    "login": "la1",
-    "password": "la123",
-    "password_hash": "017039f23788c42b5f25f9c6f9958ad369b9e94ecadb4ca83449c6fff9f35959",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 106,
-    "full_name": "Морозов Александр Михайлович",
-    "login": "ma3",
-    "password": "ma123",
-    "password_hash": "c3491ddc255cc168b051d83b5ddbee62d223b4947d867794b6d6308961dab1b2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 107,
-    "full_name": "Федоров Сергей Юрьевич",
-    "login": "fs1",
-    "password": "fs123",
-    "password_hash": "b3e31c4d1813fde305cc327e7c9b57dd6c57583304704987c7ae688b29bda7a5",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 108,
-    "full_name": "Андосов Павел Эдуардович",
-    "login": "ap",
-    "password": "ap123",
-    "password_hash": "e29bf0a9b12cc553fc26b2c3361c418a0fe7ea05343f2138e9088877324b0e0e",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 109,
-    "full_name": "Потапова Елена Викторовна",
-    "login": "pe",
-    "password": "pe123",
-    "password_hash": "8af59f3c019a8a3784c4744a600ed62292deb09e5ed057760356febf32ffbd27",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 110,
-    "full_name": "Логвенчев Олег Михайлович",
-    "login": "lo",
-    "password": "lo123",
-    "password_hash": "9b02ad78d3a0ac7538fd986316b2e19a96456f2236148e1c3d9af2229cc94450",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 111,
-    "full_name": "Косовец Валерий Валерьевич",
-    "login": "kv1",
-    "password": "kv123",
-    "password_hash": "ce819396d6fa0777574308da2bd5936a651c50795af9154a15ab269330581082",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 112,
-    "full_name": "Емельянов Олег Геннадьевич",
-    "login": "eo",
-    "password": "eo123",
-    "password_hash": "534cc40c964b4427fc7643d9d8e6ad6b1614c34b75a1c0a9007cbb822cfbd33e",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 113,
-    "full_name": "Антонов Юрий Иванович",
-    "login": "ayu",
-    "password": "ayu123",
-    "password_hash": "4f0e4b932c439e2362774d87fa67b92b4def4e35a5509863234f5f14bb622428",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 114,
-    "full_name": "Карпов Илья Адольфович",
-    "login": "ki1",
-    "password": "ki123",
-    "password_hash": "e0ec4f16fa6570040b9b67705d335c54e702c8587c6e660dda2bb87608e20ca6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 115,
-    "full_name": "Баранов Сергей Александрович",
-    "login": "bs1",
-    "password": "bs123",
-    "password_hash": "429568492dead2af7988cbef7314c33c756c7ff15b476b52df6ed8a4a10051f3",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 116,
-    "full_name": "Буланов Виктор Александрович",
-    "login": "bv1",
-    "password": "bv123",
-    "password_hash": "fd5b3812ab2401e4115e0e9fee648fab9d77f90a4c20b5489b62e237db5fd657",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 117,
-    "full_name": "Редих Виталий Валерьевич",
-    "login": "rv",
-    "password": "rv123",
-    "password_hash": "10f509e9e1dd20b07d734a17306e620c993600aad8ae78f97fdd2972fefe4b69",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 118,
-    "full_name": "Комков Виктор Сергеевич",
-    "login": "kv2",
-    "password": "kv123",
-    "password_hash": "ce819396d6fa0777574308da2bd5936a651c50795af9154a15ab269330581082",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 119,
-    "full_name": "Хазов Дмитрий Владимирович",
-    "login": "hd",
-    "password": "hd123",
-    "password_hash": "94e131f164145fab7d7e6dfb3ee1dd57c4e5228e6afb0c5f30d3651c59019367",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 120,
-    "full_name": "Косовец Илья Валерьевич",
-    "login": "ki2",
-    "password": "ki123",
-    "password_hash": "e0ec4f16fa6570040b9b67705d335c54e702c8587c6e660dda2bb87608e20ca6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 121,
-    "full_name": "Аноприенко Дмитрий Алексеевич",
-    "login": "ad1",
-    "password": "ad123",
-    "password_hash": "d54f20149895ccca0a0e5c0b1ef94dcbe739d1426f0d8ea391d450989c0abf06",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 122,
-    "full_name": "Дюдин Артем Алексеевич",
-    "login": "da",
-    "password": "da123",
-    "password_hash": "bb44b2f424281e87ae2079971bbf9158440d27e5a1bddf2a39f3311809be6847",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 123,
-    "full_name": "Гаврилов Артем Андреевич",
-    "login": "ga2",
-    "password": "ga123",
-    "password_hash": "f51d4f8c8527620e2dfeea345fc9d803d9e8fd97ee9a0e315c4298969df08a55",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 124,
-    "full_name": "Миронов Алексей Григорьевич",
-    "login": "ma4",
-    "password": "ma123",
-    "password_hash": "c3491ddc255cc168b051d83b5ddbee62d223b4947d867794b6d6308961dab1b2",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 125,
-    "full_name": "Косовец Никита Валерьевич",
-    "login": "kn1",
-    "password": "kn123",
-    "password_hash": "7e1ef6c95ab6d9c42b19e30888c1263903868ff85ce1a2cdc6bfc4ebeafb0703",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 126,
-    "full_name": "Бурлакова Наталья Алексеевна",
-    "login": "bn",
-    "password": "bn123",
-    "password_hash": "2441c280fb381d61b797bcef85fb057cd6461bb3ac288816d469307afc64b322",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 127,
-    "full_name": "Колесников Сергей Николаевич",
-    "login": "ks1",
-    "password": "ks123",
-    "password_hash": "59fc47eed200691035696d306d9d50c8c54c26da1a16be1e3fecc0fd4d453f28",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 128,
-    "full_name": "Соловьев Александр Юрьевич",
-    "login": "sa3",
-    "password": "sa123",
-    "password_hash": "dcb4b25a9059cc676c24dc36bd01784ce3acbaf94d6bcfc54bbe84deaf95ae93",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 129,
-    "full_name": "Кузнецов Анатолий Сергеевич",
-    "login": "ka3",
-    "password": "ka123",
-    "password_hash": "01b413b0d8e5b16f5a8f7ae36f9d2d76c60dfe4aad472b57a28d75bd007ec7d6",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 130,
-    "full_name": "Медведева Галина Николаевна",
-    "login": "mg",
-    "password": "mg123",
-    "password_hash": "2a12e92880b3123258c9244451fefc140bbab90115bd294eddf2b121d93e4bf1",
-    "role": "editor",
-    "active": true
-  },
-  {
-    "id": 131,
-    "full_name": "Гостевой пользователь",
-    "login": "guest",
-    "password": "guest123",
-    "password_hash": "6b93ccba414ac1d0ae1e77f3fac560c748a6701ed6946735a49d463351518e16",
-    "role": "visitor",
-    "active": true
-  }
-]
+{
+  "accounts": [
+    {
+      "username": "sha",
+      "password": "$2b$12$4qh7WuZalrvkmSPiQmf6mO2uOiiujZ70zig43KVMkMCWIQelVvhbq",
+      "role": "editor",
+      "memo": "Шулаков Андрей Дмитриевич"
+    },
+    {
+      "username": "fk",
+      "password": "$2b$12$aTv0LcKRDuNKhUYEWWbTzOZiYl.cCU1dZ2UwUouk2bjXkNje8GJCm",
+      "role": "editor",
+      "memo": "Фролов Константин Сергеевич"
+    },
+    {
+      "username": "fyu",
+      "password": "$2b$12$W1rlU/gEqt/XLXeDl9RFX.rwoWD.wf74DPS3nfYem12EXbDvpP/ha",
+      "role": "editor",
+      "memo": "Фролова Юлия Алексеевна"
+    },
+    {
+      "username": "ke",
+      "password": "$2b$12$r4k9vRd6VqUMudQy.7jB.ejBQ5AOCehT0Yg43hcVzlOxkdL423SOG",
+      "role": "editor",
+      "memo": "Крапивина Екатерина Алексеевна"
+    },
+    {
+      "username": "shm",
+      "password": "$2b$12$DyKGFL0ArQLZzeo80B8eoOcFIMyF8Yp5/1655GWTD1eLhTqtBDKCC",
+      "role": "editor",
+      "memo": "Шулакова Мария Сергеевна"
+    },
+    {
+      "username": "mm",
+      "password": "$2b$12$oSksjM6KtJ2UvD9gtmQsI.DLmR1f0YMIduw/HjxXW.SgQU8gN.5f6",
+      "role": "editor",
+      "memo": "Медведева Марина Сергеевна"
+    },
+    {
+      "username": "ps",
+      "password": "$2b$12$381J/cQZT3gxcX6Nt.L82O7RcaMt/AYs1gci9i1BdkuMI4wE8f5ki",
+      "role": "editor",
+      "memo": "Пташкина Светлана Сергеевна"
+    },
+    {
+      "username": "av",
+      "password": "$2b$12$dW4yq.eJi74.xRcX7GhrP.NLIUDMRo4YM2.TzmnvDGxNv0FxoU39C",
+      "role": "editor",
+      "memo": "Артемьева Валерия Сергеевна"
+    },
+    {
+      "username": "lt",
+      "password": "$2b$12$f8AfRgCdEeQPhsCkhslbCOol1MANPTxIxB29Dx87IlN9yqx8smbca",
+      "role": "editor",
+      "memo": "Литвинюк Татьяна Юрьевна"
+    },
+    {
+      "username": "dyu",
+      "password": "$2b$12$Kpxiy0dmvItAGzABjp5CW.rxu1O13sILR/k/grfz.hKEewX8f7J2.",
+      "role": "editor",
+      "memo": "Данилкина Юлия Геннадьевна"
+    },
+    {
+      "username": "mo",
+      "password": "$2b$12$W.QYU8.mUEM3HpBXIBW7PeLvPBOjAM3wnGCLWeaiZTyG6TT2jevFy",
+      "role": "editor",
+      "memo": "Ментьев Олег Сергеевич"
+    },
+    {
+      "username": "pa",
+      "password": "$2b$12$Fc0JBc9YK9oyx4sz6a6xJuiwoYRjdjc9j0sbA0tyPuLl.ZKsAOh1S",
+      "role": "editor",
+      "memo": "Припадчев Алексей Анатольевич"
+    },
+    {
+      "username": "aya",
+      "password": "$2b$12$KBh/XQ6alzzQ8QrpVrJd4e8ze3B5UVDRnFWHw1Yu/aFjPDD4Gi94.",
+      "role": "editor",
+      "memo": "Ахапкина Яна Владимировна"
+    },
+    {
+      "username": "ga",
+      "password": "$2b$12$TvMJscbBJMlJITszTAbKEeKeelB7YTa6UOvBjNj91KEJG3Ft/VtqS",
+      "role": "editor",
+      "memo": "Грачев Александр Викторович"
+    },
+    {
+      "username": "lm",
+      "password": "$2b$12$LyyHO2bAD2MGBQxtWFi6u.2X5Q/1RzzzwpbWImxlZBmgvuabK9Oie",
+      "role": "editor",
+      "memo": "Лысов Михаил Сергеевич"
+    },
+    {
+      "username": "sa",
+      "password": "$2b$12$EA2BVPHziznNUKQpix0spuDgcSj2Rq1irpIYxPGPD.lnfQhz6yXzS",
+      "role": "editor",
+      "memo": "Сетяев Алексей Васильевич"
+    },
+    {
+      "username": "ve",
+      "password": "$2b$12$BJObbrr1z/yBc.1MmGVHSOxLsYquAs71ZWEnBd4KNvMx7MtfbPYzO",
+      "role": "editor",
+      "memo": "Воллерт Екатерина Юрьевна"
+    },
+    {
+      "username": "pk",
+      "password": "$2b$12$IXP2s6QCAiUsVZ6NCPKRkOfjwkjiz0fbyeYYNdBauF.W2OxaIxcVK",
+      "role": "editor",
+      "memo": "Павлова Кристина Игоревна"
+    },
+    {
+      "username": "pm",
+      "password": "$2b$12$JMmnrmSLxsOnq0/FBYAeW.RKBvL5Yv1enuMzfS0wMm2.EYlf08KSy",
+      "role": "editor",
+      "memo": "Петрова Маргарита Витальевна"
+    },
+    {
+      "username": "ad",
+      "password": "$2b$12$.VFx3J62iH3UKDIU2do3xeEOYXQDoWtD5MfEsXAi7wWuote2D5MLa",
+      "role": "editor",
+      "memo": "Алексеева Дина Геннадьевна"
+    },
+    {
+      "username": "gn",
+      "password": "$2b$12$StyWjPz9XSXKmbuO7X.1kO9YHYraAUW.B5RU0eSZamFrt8FyYgsyO",
+      "role": "editor",
+      "memo": "Гельман Наталия Евгеньевна"
+    },
+    {
+      "username": "es",
+      "password": "$2b$12$.rzCahKg26e4l4EDHNqUDev3JH0b.JX9PDatbro4Q1ly7v17aoomi",
+      "role": "editor",
+      "memo": "Ермолаев Станислав Федорович"
+    },
+    {
+      "username": "kn",
+      "password": "$2b$12$rMGFYkPeeDVqI0OYg4CqauQ1fcLq.munq93qQ3HP.aZuIp2dG6Yrm",
+      "role": "editor",
+      "memo": "Колядина Надежда Владимировна"
+    },
+    {
+      "username": "bs",
+      "password": "$2b$12$8V2EijSUYvzjISUntCXd9.hS.FZ29WazHQhoahhZSaVzfxJCqxEl.",
+      "role": "editor",
+      "memo": "Баринов Сергей Петрович"
+    },
+    {
+      "username": "ko",
+      "password": "$2b$12$FNDq.EPv8laSO/8gM1X3g.cttFKBSwgvG9YpvGVcW6tf5NqgB8PwS",
+      "role": "editor",
+      "memo": "Колесникова Олеся Леонидовна"
+    },
+    {
+      "username": "sa1",
+      "password": "$2b$12$aR3aYNFgszwbS743EbLsRu0MZpnfqlL3jqurQ8qwD/nL/Vpdgjyra",
+      "role": "editor",
+      "memo": "Сабаев Алексей Юрьевич"
+    },
+    {
+      "username": "me",
+      "password": "$2b$12$nBkNj42SedY.qgJg/gVU3ugjWmwlaUTo7jU3pO0EODJIDpyq1LU7e",
+      "role": "editor",
+      "memo": "Максимова Елена Владимировна"
+    },
+    {
+      "username": "che",
+      "password": "$2b$12$InKjeEBF77h0bgW9dwBN9.63Grgq34nE58d5uH14JaJJt9ciOh0ia",
+      "role": "editor",
+      "memo": "Чугунова Елена Валерьяновна"
+    },
+    {
+      "username": "av1",
+      "password": "$2b$12$iPPtAbeJRg0d8y2s1og1Mu06v5Ly.41dOPdjA66wZmtu0X8.7kKpG",
+      "role": "editor",
+      "memo": "Агабабова Виктория Сергеевна"
+    },
+    {
+      "username": "kt",
+      "password": "$2b$12$fyE5saXzvNSzIu1Qx3lKnOfHLNNOfvcNJ5zLG67t.tg5g3GHs.OEi",
+      "role": "editor",
+      "memo": "Корнюшонкова Татьяна Валерьевна"
+    },
+    {
+      "username": "va",
+      "password": "$2b$12$SxRbqfHUSWSLwWM2kb6/TO5Y3Eg0762c2R8rPVOkTWiAxlVSpzvjy",
+      "role": "editor",
+      "memo": "Васюкова Анна Сергеевна"
+    },
+    {
+      "username": "dt",
+      "password": "$2b$12$956Go/mMeUqoYJCWVlqBS.YZF3x/NNROX/m2Emo3DpwhXZbv6CBRW",
+      "role": "editor",
+      "memo": "Деева Тамара Вячеславовна"
+    },
+    {
+      "username": "en",
+      "password": "$2b$12$zGchxFXRuD7EjCZ.ZbH1TusSZ1pgbo1jVOYh9ZidawcB7S/BRhNom",
+      "role": "editor",
+      "memo": "Емельянова Надежда Николаевна"
+    },
+    {
+      "username": "vm",
+      "password": "$2b$12$Jlwuc7QQoo20IFdw5tskaO6nNzXc/Hu4fx9ZPUEKHGEZRN058AXWq",
+      "role": "editor",
+      "memo": "Венкова Мария Александровна"
+    },
+    {
+      "username": "il",
+      "password": "$2b$12$zKoU08ry50YT6HdYmIoVveJBeoY3rJElaCkMc7wTt/pVA77cD4tEa",
+      "role": "editor",
+      "memo": "Иванова Лилия Борисовна"
+    },
+    {
+      "username": "he",
+      "password": "$2b$12$JnoMvqi/iL3FqMW.hW6HgezlNQ1Nx0neNUDYyWxG5RzjLpvAUyhGK",
+      "role": "editor",
+      "memo": "Хунцария Елена Николаевна"
+    },
+    {
+      "username": "ts",
+      "password": "$2b$12$CdhW1beWy85pL.ziGnMNmefudQiFLKoAI1wNyrJwe/cI6erHkWqAG",
+      "role": "editor",
+      "memo": "Терехова Светлана Алексеевна"
+    },
+    {
+      "username": "za",
+      "password": "$2b$12$RvAVFu0yoiQ.n9d7FssP7Osxj9mLHoc.dguH2c0ccnwFaAlbqu5iC",
+      "role": "editor",
+      "memo": "Зуев Андрей Александрович"
+    },
+    {
+      "username": "ra",
+      "password": "$2b$12$qYb2/fUCQQ/Axv/vrEF9N.fUI/Dd64EI6n95sZWP6RXe92uyCipfW",
+      "role": "editor",
+      "memo": "Ромашов Антон Игоревич"
+    },
+    {
+      "username": "ee",
+      "password": "$2b$12$qRa9uLA8wPqHNXIIZhJbY.L3NBqEGXrElcqje9oKhAnJ0zlcP2SGC",
+      "role": "editor",
+      "memo": "Ерохина Екатерина Сергеевна"
+    },
+    {
+      "username": "ia",
+      "password": "$2b$12$bWfbuypvX.4an2BEYJZcauqGPYxaS6wlR5KSXvzZDxR.fsqtii52K",
+      "role": "editor",
+      "memo": "Ильин Александр Владимирович"
+    },
+    {
+      "username": "tb",
+      "password": "$2b$12$hW3MQh20Ixm0ClZFscu21OvFN/95rwkJRKKyGGWYoPj5aZFjUROlS",
+      "role": "editor",
+      "memo": "Ткаченко Борис  Васильевич"
+    },
+    {
+      "username": "fs",
+      "password": "$2b$12$N/GQ29LaMKIE.iw/dDXr7uTsrAEgLgjstNdokeOsTrxBMm8r5uoFW",
+      "role": "editor",
+      "memo": "Федоров Сергей Валерьевич"
+    },
+    {
+      "username": "yaa",
+      "password": "$2b$12$RjeGuHJ4dUojQgyOW7RCcerrz3TrnIyD4wWVPfECszfKUBS0tzNiC",
+      "role": "editor",
+      "memo": "Яковлев Александр Алексеевич"
+    },
+    {
+      "username": "sp",
+      "password": "$2b$12$RR5ML5G9F98EEZcNVVsu.O1qa0E.1p06YN2jAFS3GzQ76NngDKaHK",
+      "role": "editor",
+      "memo": "Сидоров Петр Святославович"
+    },
+    {
+      "username": "bu",
+      "password": "$2b$12$qW.fJz8KSqBpqNP28azOU.O1SrKhBGiTLMZX9C0AKUy3Mki1qgOpu",
+      "role": "editor",
+      "memo": "Билецкая Ульяна Владимировна"
+    },
+    {
+      "username": "td",
+      "password": "$2b$12$GWd0/mo1KzKrufgEDSBPcObXlMdep6iRNafD/Kx3xaPQbdTLG6wfa",
+      "role": "editor",
+      "memo": "Тарасов Даниил Анатольевич"
+    },
+    {
+      "username": "kd",
+      "password": "$2b$12$hSESx1g/i0pEHRSLQeq4/emWgBVXPhBayEjUC3OFRSCYanB/XGk4q",
+      "role": "editor",
+      "memo": "Коморной Даниил Денисович"
+    },
+    {
+      "username": "ki",
+      "password": "$2b$12$AJVqTJ358m7TdQ0HHn4ArucVsUl7x8Kabt/JkORoqzNgeWznk.Uuq",
+      "role": "editor",
+      "memo": "Куницын Илья Владимирович"
+    },
+    {
+      "username": "pd",
+      "password": "$2b$12$vPyG05rN1kBJfoFkOYMkLuELGdw8oGdgDOAJg/ZyGYntZmBFFl3OK",
+      "role": "editor",
+      "memo": "Понкратов Дмитрий Федорович"
+    },
+    {
+      "username": "pm1",
+      "password": "$2b$12$xd6PjgWBu5CHXnyu2/UBx.8ITKPfP0yqHu8B/1DB3cNgtP3CP7Qcm",
+      "role": "editor",
+      "memo": "Поляков Максим Евгеньевич"
+    },
+    {
+      "username": "mn",
+      "password": "$2b$12$YpHFxkQ7Iyc9FzdD92p8su1gAT5HI8YmFZNjMGUSityjV.uV6pyye",
+      "role": "editor",
+      "memo": "Мокроусов Николай Игоревич"
+    },
+    {
+      "username": "la",
+      "password": "$2b$12$PMmFDBKQymLnZPn6aGEHCOknBaKpvwd/4lMpzrG5g4fvgmLAB45R2",
+      "role": "editor",
+      "memo": "Лебедев Артем Викторович"
+    },
+    {
+      "username": "ka",
+      "password": "$2b$12$Pztzas9GQYZZbxhOaQnyqu0Tbk4Z9zodOo64MU2D/FZIhrEyL5KAy",
+      "role": "editor",
+      "memo": "Колдин Андрей Георгиевич"
+    },
+    {
+      "username": "kk",
+      "password": "$2b$12$an1/6nvi4gt3YwBpXH5YNOwkQRpIdoIhmdRb/0.tU8Y0FW0WMJmNa",
+      "role": "editor",
+      "memo": "Королев Кирилл Петрович"
+    },
+    {
+      "username": "ma",
+      "password": "$2b$12$mXBtgg0pO3C3dXdOLi64XOoNo98X4Ns6vJSDoZi8tRUZBXpCJMWNu",
+      "role": "editor",
+      "memo": "Миронов Александр Эдуардович"
+    },
+    {
+      "username": "kyu",
+      "password": "$2b$12$XK6MEbk14GIO93v1nI5vFeUvlNkoyWF93dMZhbigZXS.jjIRayUh.",
+      "role": "editor",
+      "memo": "Курдюмов Юрий Александрович"
+    },
+    {
+      "username": "na",
+      "password": "$2b$12$VcVfTsmkhvoeZgkMmz63bOFWccELe9kNcsTObe2KdQRuh9aerSlVG",
+      "role": "editor",
+      "memo": "Нефедов Алексей Владимирович"
+    },
+    {
+      "username": "dp",
+      "password": "$2b$12$BzLlbJB38dPHjpzkd98GC.nQJbZWqPKrUdgNoV1KTYHGD85oY8zdy",
+      "role": "editor",
+      "memo": "Долматов Павел Алексеевич"
+    },
+    {
+      "username": "fa",
+      "password": "$2b$12$BFN2UyiiVEr8.gvogptMTes137SPqv2TniOwu0z90NlgsxACKYCsm",
+      "role": "editor",
+      "memo": "Фролов Алексей Андреевич"
+    },
+    {
+      "username": "mr",
+      "password": "$2b$12$CntfzzQrXNYsbhDUyPHQFOsgx7TJ5Xc9L6aM01FCBmOg1CwM9eCvO",
+      "role": "editor",
+      "memo": "Мирзалиев Рустам Бюльбюльевич"
+    },
+    {
+      "username": "md",
+      "password": "$2b$12$4wAJ/oqp9HHCo5Lgtz.Pr.MXdgWQ/NJuKJy/cINRKzIZG2hqY/jB.",
+      "role": "editor",
+      "memo": "Машковцев Дмитрий Сергеевич"
+    },
+    {
+      "username": "ip",
+      "password": "$2b$12$TzExvk7EW.TkMcSP5L8gPu2SegJrV2eJzJtXH31qQv7ILUnUx70WG",
+      "role": "editor",
+      "memo": "Ильин Павел Витальевич"
+    },
+    {
+      "username": "be",
+      "password": "$2b$12$T5dkYQDbzbZWaGqLpje0lOoOo73mh2DpOxX8XfZsSY.WM8C4hXnr.",
+      "role": "editor",
+      "memo": "Бондарев Евгений Андреевич"
+    },
+    {
+      "username": "bv",
+      "password": "$2b$12$AyO1uHQ8v2Ny387bCRokpOhKzsAdFe0csgQkXR7fRO/oDimxWsXjy",
+      "role": "editor",
+      "memo": "Баулин Василий Викторович"
+    },
+    {
+      "username": "mv",
+      "password": "$2b$12$5xWPUV2jPQ5YyNjUftNOvuaok.QMhc4ww6L8rFbvDnD4go8zl/kE2",
+      "role": "editor",
+      "memo": "Моисеев Владимир Сергеевич"
+    },
+    {
+      "username": "ks",
+      "password": "$2b$12$tLzko52rTj5kLXuHyrd7GOlYfhYu13nBWT1pLsdULRtUeASJB27tW",
+      "role": "editor",
+      "memo": "Карпов Сергей Николаевич"
+    },
+    {
+      "username": "chyu",
+      "password": "$2b$12$qbAMrX33fEMYuCh4cnsAAezEHQzGhDMFPtlNZI.bw/c7KtwqSdUp2",
+      "role": "editor",
+      "memo": "Чухутин Юрий Александрович"
+    },
+    {
+      "username": "bd",
+      "password": "$2b$12$VaPKSm/qqmPPqwgVMxNYW.WlOgZBfHZ29Py3fIlM3ywr0.m1aQHFi",
+      "role": "editor",
+      "memo": "Будкин Денис Александрович"
+    },
+    {
+      "username": "va1",
+      "password": "$2b$12$kLWKjhWV.FgFjXkxQy5jYOViEbh1IbOHVCGHY3GUUy10oXOuy2JF6",
+      "role": "editor",
+      "memo": "Верещагин Антон Александрович"
+    },
+    {
+      "username": "fr",
+      "password": "$2b$12$oKYKDpkaLT53m/k1KKgriOhuR8LuXnubIlE0VRQ3L1PlCvtVmFKzq",
+      "role": "editor",
+      "memo": "Фатиев Рустам Русланович"
+    },
+    {
+      "username": "ka1",
+      "password": "$2b$12$JE27aglFtHOuVx4olVFLxO8pKnrd5AeBmJlF0b/Skb0IQRijbJVlC",
+      "role": "editor",
+      "memo": "Куранов Андрей Сергеевич"
+    },
+    {
+      "username": "ka2",
+      "password": "$2b$12$KtFZ1XHvePQVV3DOP7Hd6.6qmKaqMK3TK9kGxYPVLIA02UErIvZle",
+      "role": "editor",
+      "memo": "Кузьмин Алексей Сергеевич"
+    },
+    {
+      "username": "sv",
+      "password": "$2b$12$vz/ZSFx8kfs3RYBP.glsCecr5S1SbO.GGPHjL44QUeM0n1TTNOmoy",
+      "role": "editor",
+      "memo": "Синельников Виктор Геннадьевич"
+    },
+    {
+      "username": "vv",
+      "password": "$2b$12$Up2Y3huFnC//ybW9GlM9DOvH9io3cKc5MLZDIaYhdAyqdP3u98nUC",
+      "role": "editor",
+      "memo": "Ващенко Владимир Владимирович"
+    },
+    {
+      "username": "ma1",
+      "password": "$2b$12$BOlt7hSqhGUhuICKzbEt0ORlPsip2boUeKq/C7FAQRJ07m9emZkjq",
+      "role": "editor",
+      "memo": "Мусиенко Андрей Николаевич"
+    },
+    {
+      "username": "sa2",
+      "password": "$2b$12$zlcPmp04.cV/HkORwoKzzO1DQauE2KIW6dtMmOifw8q7vj99A1FxC",
+      "role": "editor",
+      "memo": "Сосунов Алексей Александрович"
+    },
+    {
+      "username": "aa",
+      "password": "$2b$12$aKPDct1TiAKmmNDKB24AUOEZcwKNqN57.9Qx8Cxemv4wVeM.ecALu",
+      "role": "editor",
+      "memo": "Александров Алексей Сергеевич"
+    },
+    {
+      "username": "sm",
+      "password": "$2b$12$8DSpgZCMhHFyMM3co7OQV.MeLz6F46MaUTtCn5Gsz8RLiK.D6pLda",
+      "role": "editor",
+      "memo": "Сутягин Максим Александрович"
+    },
+    {
+      "username": "sha1",
+      "password": "$2b$12$O0twqwo9yK8Q2KEyS.TOGOgCkHlO5xywJ5O.mn1cm.vQT28.xDL6u",
+      "role": "editor",
+      "memo": "Шибанов Александр Сергеевич"
+    },
+    {
+      "username": "ma2",
+      "password": "$2b$12$2nqpX6wtz41I0kX1dTFWj.WxzrtBQXKJKTD3Cze49iv86XJLJtDzq",
+      "role": "editor",
+      "memo": "Матвеев Александр Александрович"
+    },
+    {
+      "username": "ir",
+      "password": "$2b$12$fxNZVkL//qdcHXKZZGPIqO1USr6EkgrodfrG.NfR.ra84wypnUAkO",
+      "role": "editor",
+      "memo": "Иванов Роман Александрович"
+    },
+    {
+      "username": "vs",
+      "password": "$2b$12$wi0StB65kaXEX0ZWaj2Vy.4Rfz2lISOoGcwgBBd0GkBzhZRNrrAqq",
+      "role": "editor",
+      "memo": "Васильев Сергей Яковлевич"
+    },
+    {
+      "username": "sd",
+      "password": "$2b$12$AMGUkg87cGm45xypwjHKhuMQ/IZricelT7BfvC055Dioe4yJw1eRS",
+      "role": "editor",
+      "memo": "Сощенко Дмитрий Леонтьевич"
+    },
+    {
+      "username": "ga1",
+      "password": "$2b$12$snWy0oSI74lSYvjGRwgfoO3KVCm8dZLrq.RsLw/nNkaKx3bkKPYOG",
+      "role": "editor",
+      "memo": "Гильмутдинов Айнур Нургаянович"
+    },
+    {
+      "username": "gi",
+      "password": "$2b$12$ysgi/UMHt/jZ2u09U.u4/Ow5NwqXlpNgofRvX8hKDfLCLi5bO7f2C",
+      "role": "editor",
+      "memo": "Гладков Илья Васильевич"
+    },
+    {
+      "username": "br",
+      "password": "$2b$12$eDuoGWfkEP3SnAQdf5/8Qe/YZlWSAGhpxpxKkpchlGV0nz.a8sSay",
+      "role": "editor",
+      "memo": "Бредников Роман Владимирович"
+    },
+    {
+      "username": "kp",
+      "password": "$2b$12$HvhkyehMwY5KQ/uvlOMFYe1vCe5itG.UkQ/tNRNVAXbw.1bDSUshm",
+      "role": "editor",
+      "memo": "Камынов Павел Васильевич"
+    },
+    {
+      "username": "tv",
+      "password": "$2b$12$uYa9BucDZsypCkZYMbTpC.OTeTO2As6M8Ip8QHCSgcAaxCthmLWi2",
+      "role": "editor",
+      "memo": "Трушин Виктор Юрьевич"
+    },
+    {
+      "username": "aa1",
+      "password": "$2b$12$/ceI1WlNAKXEFJizXX7Ap.GQ2OwfxRBJcgWESdfiiWVTHPiXoKCRO",
+      "role": "editor",
+      "memo": "Андреев Артем Александрович"
+    },
+    {
+      "username": "kv",
+      "password": "$2b$12$wrt2o.sdlfiDJuXUGonoIuNgtVYgA9dWHvQOwHCoDCOhwKzHdpW8i",
+      "role": "editor",
+      "memo": "Кочеринский Владислав Александрович"
+    },
+    {
+      "username": "shn",
+      "password": "$2b$12$QoBTl7qXtSznZG1G6VERCOhRo2rlAqVeRvT6xMMg.fI9.l0vd8rNm",
+      "role": "editor",
+      "memo": "Шадрин Никита Айдарович"
+    },
+    {
+      "username": "ps1",
+      "password": "$2b$12$w5sAg/r8Y7Ca91rDQOz45OvZ533kfFqdBv5C6tn6CJL880E1r1.26",
+      "role": "editor",
+      "memo": "Пономарев Сергей Андреевич"
+    },
+    {
+      "username": "ps2",
+      "password": "$2b$12$avbbDffQu00yNNZDs2XsaOLgJxOy99BzstTUsnJSk2QCDB95edgVS",
+      "role": "editor",
+      "memo": "Панферов Сергей Викторович"
+    },
+    {
+      "username": "zs",
+      "password": "$2b$12$NL261bp6yxAzoi8FOQUXYOUFS5Ou.Q8dti0wEb7pbIBq/B3BG72km",
+      "role": "editor",
+      "memo": "Зайцев Семён Дмитриевич"
+    },
+    {
+      "username": "syu",
+      "password": "$2b$12$Wig9JStFRFPbrucv2lxKSOrYO1Y6X/8egJ3aISrPRjh89tIuSgIGS",
+      "role": "editor",
+      "memo": "Селиванов Юрий Александрович"
+    },
+    {
+      "username": "syu1",
+      "password": "$2b$12$XBKQ3wcMdv8Krb7E1OF2duhUdMQMzzzLGQ.F18lACzz2Bqe/ZJinG",
+      "role": "editor",
+      "memo": "Селиванов Юрий Александрович"
+    },
+    {
+      "username": "sr",
+      "password": "$2b$12$8aB.iZwXTF0R4uI.znQwXeUezNC8BAmB11PySJbVEWBp0f6AHfud6",
+      "role": "editor",
+      "memo": "Салагор Роман Андреевич"
+    },
+    {
+      "username": "ao",
+      "password": "$2b$12$zH9MEIqR2QOMJqQgV6HDo.l2CgxeZM5dyuaw1G7ZBMXsxkacgvWtG",
+      "role": "editor",
+      "memo": "Астафьева Оксана Васильевна"
+    },
+    {
+      "username": "mr1",
+      "password": "$2b$12$pcDo2ELgX3Ss/TwnczMqpOVlEvEVep4Zkt6hMM4kW3NqM4ZneDtpm",
+      "role": "editor",
+      "memo": "Мавлитов Руслан Нафикович"
+    },
+    {
+      "username": "di",
+      "password": "$2b$12$OZY6AR5PmwXk3.SGu2rwDuX6KnQLcLIQe8oiDQo10ysz5ncPNoQ8G",
+      "role": "editor",
+      "memo": "Дегтярев Игорь Михайлович"
+    },
+    {
+      "username": "vn",
+      "password": "$2b$12$wttOfrFkdL.QwuglatNdx.Y2Qrxqqyre7bn73Oh5DPXBuSvwJwHhe",
+      "role": "editor",
+      "memo": "Вершинин Никита Андреевич"
+    },
+    {
+      "username": "au",
+      "password": "$2b$12$z7k4KoAU8UYWzCZ05M9ffuv04oo5DA1COtaz.hBRI8W87ECD1sKby",
+      "role": "editor",
+      "memo": "Акылбек уулу Айбек"
+    },
+    {
+      "username": "shv",
+      "password": "$2b$12$x2VzrzSP8XszToy5l9IvS.YbwVlqrwzMGJbO0XinMvBzj5K1y1uEO",
+      "role": "editor",
+      "memo": "Шкулев Вадим Владимирович"
+    },
+    {
+      "username": "la1",
+      "password": "$2b$12$V2lEfPlSQopl5ysT0v7Rh.vE5MOgdUIyNk5ok0zVOjy77VTLyltpW",
+      "role": "editor",
+      "memo": "Левин Александр Николаевич"
+    },
+    {
+      "username": "ma3",
+      "password": "$2b$12$htAUTclo4YaLCded.0PtcuMo6mKqtMFjggnPCtzXLE48rOnT.qsfC",
+      "role": "editor",
+      "memo": "Морозов Александр Михайлович"
+    },
+    {
+      "username": "fs1",
+      "password": "$2b$12$jW0U8Aw37vDkDWpDTYiLveqkkudV8O7OSTEAaNm8w95W1UQ6ek.9e",
+      "role": "editor",
+      "memo": "Федоров Сергей Юрьевич"
+    },
+    {
+      "username": "ap",
+      "password": "$2b$12$BmMzskPl.O/.Mbc74y.37.kF4tDWUGceSWCWxs6EzMEFyk1f.qKN.",
+      "role": "editor",
+      "memo": "Андосов Павел Эдуардович"
+    },
+    {
+      "username": "pe",
+      "password": "$2b$12$HkAqkI9Nnlc6/yeOhAgpieS.Tfqt1aXZPeyyl1NsdZZ8d3rakRAA2",
+      "role": "editor",
+      "memo": "Потапова Елена Викторовна"
+    },
+    {
+      "username": "lo",
+      "password": "$2b$12$nQ2/6HKLFgz5W9lpIesyyucQiFGT06U/4pjGvR.csVOfGNxLbiROC",
+      "role": "editor",
+      "memo": "Логвенчев Олег Михайлович"
+    },
+    {
+      "username": "kv1",
+      "password": "$2b$12$5LOO9MmGftaVMx6/JUfs2O2PJTf9ANCdtx34/NXeMKWFs4QOPI7Qe",
+      "role": "editor",
+      "memo": "Косовец Валерий Валерьевич"
+    },
+    {
+      "username": "eo",
+      "password": "$2b$12$/XO/2isPyKtg9mTCpgN4Mu8F/Gs1hSsayy/F3Ddk.LRXxxf7148D.",
+      "role": "editor",
+      "memo": "Емельянов Олег Геннадьевич"
+    },
+    {
+      "username": "ayu",
+      "password": "$2b$12$/YtYZk3NjeY2Q8tQy49KlOKMaUJHJPIY96WK/3f3UNemDoERB1mFG",
+      "role": "editor",
+      "memo": "Антонов Юрий Иванович"
+    },
+    {
+      "username": "ki1",
+      "password": "$2b$12$As/HYD0o37WwaDhaYoXNu.hFyCH6qLpOvlPdaWlRgRn0f5/wTEnlu",
+      "role": "editor",
+      "memo": "Карпов Илья Адольфович"
+    },
+    {
+      "username": "bs1",
+      "password": "$2b$12$zZdx33.B4ZPE19bFeYzLUuiS8pXx964gbUDNAqAPfLJ9hdUZc49G2",
+      "role": "editor",
+      "memo": "Баранов Сергей Александрович"
+    },
+    {
+      "username": "bv1",
+      "password": "$2b$12$ZpC4tFK985JueIITeYF/I.Z.WVkdcn1PFvhYnpPFhsHqbk.W4I05a",
+      "role": "editor",
+      "memo": "Буланов Виктор Александрович"
+    },
+    {
+      "username": "rv",
+      "password": "$2b$12$yREDp7IlZMW5fxb64zntgOrRN9wKv/R1ILQ9E6LOHy8W/GGyjuYjm",
+      "role": "editor",
+      "memo": "Редих Виталий Валерьевич"
+    },
+    {
+      "username": "kv2",
+      "password": "$2b$12$kZKUlKINKkCvfLlxnmsuMejEjGi2Wb9zF7HIt3db5Y0/e61WOGLya",
+      "role": "editor",
+      "memo": "Комков Виктор Сергеевич"
+    },
+    {
+      "username": "hd",
+      "password": "$2b$12$oAzt9B6wOKfdFwkYQp12Tulo.LCN.1Qj3ktgHnMGlzRYBLeH4.JGi",
+      "role": "editor",
+      "memo": "Хазов Дмитрий Владимирович"
+    },
+    {
+      "username": "ki2",
+      "password": "$2b$12$/52fvUBqKAXP/b9ZxbxmHu5kO4whDVDinruWyiTs7gHMYvUosIEkW",
+      "role": "editor",
+      "memo": "Косовец Илья Валерьевич"
+    },
+    {
+      "username": "ad1",
+      "password": "$2b$12$ney05yU0wK7vIkGA6MRUW.nydhOb7PJQ3ylAUVS8PCUm4FPF8u66q",
+      "role": "editor",
+      "memo": "Аноприенко Дмитрий Алексеевич"
+    },
+    {
+      "username": "da",
+      "password": "$2b$12$nq3mRZatqbKdTTKjY.F4HuqdG4jv4PtxKKWgYoBONfrsXQIEQfMNO",
+      "role": "editor",
+      "memo": "Дюдин Артем Алексеевич"
+    },
+    {
+      "username": "ga2",
+      "password": "$2b$12$UM7qj/PTnDEUECrRpxmXKO2ThY/39bS3b7hbhdA6mt78a.8CVEAda",
+      "role": "editor",
+      "memo": "Гаврилов Артем Андреевич"
+    },
+    {
+      "username": "ma4",
+      "password": "$2b$12$IY.6JiGs/Xj2C8It0SURYOZV/dSzoVax07QtcnVslJvNyf2pS6bXi",
+      "role": "editor",
+      "memo": "Миронов Алексей Григорьевич"
+    },
+    {
+      "username": "kn1",
+      "password": "$2b$12$gqT4wx8OcbjiTUW2mxzhy.TrdIClWMLkgVF0ZocrY9QFeNJj.uUoS",
+      "role": "editor",
+      "memo": "Косовец Никита Валерьевич"
+    },
+    {
+      "username": "bn",
+      "password": "$2b$12$mRvKEKBa8UeCj1UsdoREku2SHxKmGMHa26I1iYi9tjWxFtJk8KS2y",
+      "role": "editor",
+      "memo": "Бурлакова Наталья Алексеевна"
+    },
+    {
+      "username": "ks1",
+      "password": "$2b$12$E7Z5ajnjjBs9ke.WeEvcLOOXDqr.vaOj5xkqEKmfksBkVJK/.49OO",
+      "role": "editor",
+      "memo": "Колесников Сергей Николаевич"
+    },
+    {
+      "username": "sa3",
+      "password": "$2b$12$z70LcHldGqyWfdrehqigD..jIkCWU/pB.2vPBSVhlcShtLnLfHZ22",
+      "role": "editor",
+      "memo": "Соловьев Александр Юрьевич"
+    },
+    {
+      "username": "ka3",
+      "password": "$2b$12$l8RDcMuDly2MvZWRHv9CMeaDv/IplsYxE4umkNMGZmIuwgSbRyXKO",
+      "role": "editor",
+      "memo": "Кузнецов Анатолий Сергеевич"
+    },
+    {
+      "username": "mg",
+      "password": "$2b$12$eYqFrUh7hsogF0u8VuzhsONfPjyS1.j7203ZT8g0P.DOU2j7KVKmq",
+      "role": "editor",
+      "memo": "Медведева Галина Николаевна"
+    },
+    {
+      "username": "guest",
+      "password": "$2b$12$ajPviqFn8Wsq9.fdKnwX2OrvgT8AXKNFe5k67gXfaIwlSQUfevbMK",
+      "role": "visitor",
+      "memo": "Гостевой пользователь"
+    }
+  ]
+}

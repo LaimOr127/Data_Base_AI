@@ -617,6 +617,20 @@ func setPublish(c *gin.Context) {
 		return
 	}
 
+	// Сохраняем существующие аккаунты, если они есть
+	if model.Conf.Publish != nil && model.Conf.Publish.Auth != nil && len(model.Conf.Publish.Auth.Accounts) > 0 {
+		if publish.Auth == nil {
+			publish.Auth = &conf.BasicAuth{
+				Enable:   true,
+				Accounts: model.Conf.Publish.Auth.Accounts,
+			}
+		} else if len(publish.Auth.Accounts) == 0 {
+			// Если аккаунты не переданы, сохраняем существующие
+			publish.Auth.Accounts = model.Conf.Publish.Auth.Accounts
+			publish.Auth.Enable = true // Включаем auth для логина
+		}
+	}
+
 	model.Conf.Publish = publish
 	model.Conf.Save()
 

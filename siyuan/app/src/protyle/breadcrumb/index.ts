@@ -357,18 +357,6 @@ ${padHTML}
                         net2LocalAssets(protyle, "Assets");
                     }
                 }).element);
-                window.siyuan.menus.menu.append(new MenuItem({
-                    id: "uploadAssets2CDN",
-                    label: window.siyuan.languages.uploadAssets2CDN,
-                    icon: "iconCloudSucc",
-                    click() {
-                        if (!needSubscribe()) {
-                            confirmDialog("📦 " + window.siyuan.languages.uploadAssets2CDN, window.siyuan.languages.uploadAssets2CDNConfirmTip, () => {
-                                fetchPost("/api/asset/uploadCloud", {id: protyle.block.id});
-                            });
-                        }
-                    }
-                }).element);
                 if (window.siyuan.user) { // 登录链滴账号后即可使用 `分享到链滴` https://github.com/siyuan-note/siyuan/issues/7392
                     window.siyuan.menus.menu.append(new MenuItem({
                         id: "share2Liandi",

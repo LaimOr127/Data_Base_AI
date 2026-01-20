@@ -253,6 +253,13 @@ export const kernelError = () => {
     if (document.querySelector("#errorLog")) {
         return;
     }
+    // ИЗМЕНЕНО: Убираем блокирующее модальное окно, заменяем на неблокирующее уведомление
+    // Показываем только уведомление внизу экрана вместо блокирующего диалога
+    const message = window.siyuan.languages.kernelFault1 || "Проблема с подключением к ядру. Проверьте сеть и перезапустите.";
+    showMessage(message, 5000, "error");
+    
+    // Старый код с блокирующим диалогом - закомментирован
+    /*
     let title = `💔 ${window.siyuan.languages.kernelFault0} <small>v${Constants.SIYUAN_VERSION}</small>`;
     let body = `<div>${window.siyuan.languages.kernelFault1}</div><div class="fn__hr"></div><div>${window.siyuan.languages.kernelFault2}</div>`;
     if (isInIOS()) {
@@ -278,6 +285,7 @@ export const kernelError = () => {
             window.webkit.messageHandlers.startKernelFast.postMessage("startKernelFast");
         });
     }
+    */
 };
 
 export const exitSiYuan = async () => {

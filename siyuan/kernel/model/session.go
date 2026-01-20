@@ -33,6 +33,7 @@ import (
 	"github.com/siyuan-note/logging"
 	"github.com/siyuan-note/siyuan/kernel/util"
 	"github.com/steambap/captcha"
+	"golang.org/x/crypto/bcrypt"
 )
 
 var (
@@ -104,6 +105,7 @@ func LoginAuth(c *gin.Context) {
 	}
 
 	// Проверка входа по логину/паролю
+	// Работает независимо от publish.auth.enable, так как используется для основного входа
 	if usernameArg, hasUsername := arg["username"]; hasUsername && usernameArg != nil {
 		username := strings.TrimSpace(usernameArg.(string))
 		passwordArg, hasPassword := arg["password"]
@@ -131,9 +133,9 @@ func LoginAuth(c *gin.Context) {
 			return
 		}
 
-		// Проверяем аккаунт
+		// Проверяем аккаунт (независимо от publish.auth.enable)
 		account := GetBasicAuthAccount(username)
-		logging.LogInfof("Login attempt: username=[%s], account found=[%v]", username, account != nil)
+		logging.LogInfof("Login attempt: username=[%s], account found=[%v], publish.auth.enable=[%v]", username, account != nil, Conf.Publish != nil && Conf.Publish.Auth != nil && Conf.Publish.Auth.Enable)
 
 		if account == nil {
 			// Аккаунт не найден
@@ -161,12 +163,23 @@ func LoginAuth(c *gin.Context) {
 			return
 		}
 
-		// Проверяем пароль
-		if account.Password != password {
+		// Проверяем пароль (поддерживаем как bcrypt хэш, так и открытый текст для обратной совместимости)
+		passwordMatch := false
+		if strings.HasPrefix(account.Password, "$2a$") || strings.HasPrefix(account.Password, "$2b$") {
+			// Это bcrypt хэш
+			if err := bcrypt.CompareHashAndPassword([]byte(account.Password), []byte(password)); err == nil {
+				passwordMatch = true
+			}
+		} else {
+			// Открытый текст (для обратной совместимости)
+			passwordMatch = account.Password == password
+		}
+		
+		if !passwordMatch {
 			// Неверный пароль
 			ret.Code = -1
 			ret.Msg = "Неверный логин или пароль"
-			logging.LogWarnf("invalid password for user [%s] [ip=%s] - expected [%s], got [%s]", username, util.GetRemoteAddr(c.Request), account.Password, password)
+			logging.LogWarnf("invalid password for user [%s] [ip=%s]", username, util.GetRemoteAddr(c.Request))
 			util.WrongAuthCount++
 			workspaceSession.Captcha = gulu.Rand.String(7)
 			if err := session.Save(c); err != nil {
@@ -457,16 +470,30 @@ func CheckAuth(c *gin.Context) {
 		// Проверка пользователей из Publish.Auth.Accounts
 		if Conf.Publish != nil && Conf.Publish.Auth != nil && Conf.Publish.Auth.Enable {
 			account := GetBasicAuthAccount(username)
-			if account != nil && account.Username != "" && account.Password == password {
-				// Устанавливаем роль пользователя
-				c.Set(RoleContextKey, account.Role)
-				// Сохраняем в сессии для последующих запросов
-				workspaceSession.UserLogin = username
-				if err := session.Save(c); err != nil {
-					logging.LogErrorf("save session failed: %s", err)
+			if account != nil && account.Username != "" {
+				// Проверяем пароль (поддерживаем как bcrypt хэш, так и открытый текст)
+				passwordMatch := false
+				if strings.HasPrefix(account.Password, "$2a$") || strings.HasPrefix(account.Password, "$2b$") {
+					// Это bcrypt хэш
+					if err := bcrypt.CompareHashAndPassword([]byte(account.Password), []byte(password)); err == nil {
+						passwordMatch = true
+					}
+				} else {
+					// Открытый текст (для обратной совместимости)
+					passwordMatch = account.Password == password
 				}
-				c.Next()
-				return
+				
+				if passwordMatch {
+					// Устанавливаем роль пользователя
+					c.Set(RoleContextKey, account.Role)
+					// Сохраняем в сессии для последующих запросов
+					workspaceSession.UserLogin = username
+					if err := session.Save(c); err != nil {
+						logging.LogErrorf("save session failed: %s", err)
+					}
+					c.Next()
+					return
+				}
 			}
 		}
 	}

@@ -126,16 +126,17 @@ export const openTitleMenu = (protyle: IProtyle, position: IPosition, from: stri
             }
         }).element);
         if (!window.siyuan.config.readonly) {
-            if (window.siyuan.config.cloudRegion === 0) {
-                window.siyuan.menus.menu.append(new MenuItem({
-                    id: "wechatReminder",
-                    label: window.siyuan.languages.wechatReminder,
-                    icon: "iconMp",
-                    click() {
-                        openFileWechatNotify(protyle);
-                    }
-                }).element);
-            }
+            // WeChat reminder removed per user request
+            // if (window.siyuan.config.cloudRegion === 0) {
+            //     window.siyuan.menus.menu.append(new MenuItem({
+            //         id: "wechatReminder",
+            //         label: window.siyuan.languages.wechatReminder,
+            //         icon: "iconMp",
+            //         click() {
+            //             openFileWechatNotify(protyle);
+            //         }
+            //     }).element);
+            // }
             const isCardMade = !!response.data.ial[Constants.CUSTOM_RIFF_DECKS];
             const riffCardMenu: IMenu[] = [{
                 id: "spaceRepetition",

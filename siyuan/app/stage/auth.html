@@ -575,9 +575,19 @@
             }
 
             showMessage(response.msg)
-            inputElement.value = ''
-            captchaElement.value = ''
-            inputElement.focus()
+            if (currentMode === 'code') {
+                const inputElement = document.getElementById('authCode')
+                inputElement.value = ''
+                captchaElement.value = ''
+                inputElement.focus()
+            } else {
+                const usernameElement = document.getElementById('username')
+                const passwordElement = document.getElementById('password')
+                usernameElement.value = ''
+                passwordElement.value = ''
+                captchaElement.value = ''
+                usernameElement.focus()
+            }
         })
     }
 

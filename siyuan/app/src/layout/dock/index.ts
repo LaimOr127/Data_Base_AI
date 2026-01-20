@@ -11,7 +11,7 @@ import {Graph} from "./Graph";
 import {Model} from "../Model";
 import {adjustLayout, saveLayout, setPanelFocus} from "../util";
 import {getDockByType, resizeTabs} from "../tabUtil";
-import {Inbox} from "./Inbox";
+// Inbox отключен по требованию: не создаем модель и не показываем кнопку
 import {Protyle} from "../../protyle";
 import {Backlink} from "./Backlink";
 import {resetFloatDockSize} from "./util";
@@ -22,7 +22,8 @@ import {Custom} from "./Custom";
 import {clearBeforeResizeTop, recordBeforeResizeTop} from "../../protyle/util/resize";
 import {Constants} from "../../constants";
 
-const TYPES = ["file", "outline", "inbox", "bookmark", "tag", "graph", "globalGraph", "backlink"];
+const DISABLED_TYPES = ["inbox"];
+const TYPES = ["file", "outline", "bookmark", "tag", "graph", "globalGraph", "backlink"];
 
 export class Dock {
     public element: HTMLElement;
@@ -72,6 +73,7 @@ export class Dock {
         let showDock = false;
         if (options.data.data.length !== 0) {
             if (!showDock) {
+                options.data.data[0] = options.data.data[0].filter(item => !DISABLED_TYPES.includes(item.type));
                 options.data.data[0].find(item => {
                     if (TYPES.includes(item.type)) {
                         showDock = true;
@@ -80,6 +82,7 @@ export class Dock {
                 });
             }
             if (!showDock && options.data.data[1]) {
+                options.data.data[1] = options.data.data[1].filter(item => !DISABLED_TYPES.includes(item.type));
                 options.data.data[1].find(item => {
                     if (TYPES.includes(item.type)) {
                         showDock = true;
@@ -502,6 +505,9 @@ export class Dock {
 
     public toggleModel(type: TDock | string, show = false, close = false, hide = false, isSaveLayout = true) {
         if (!type) {
+            return;
+        }
+        if (DISABLED_TYPES.includes(type as string)) {
             return;
         }
         if (this.pin) {

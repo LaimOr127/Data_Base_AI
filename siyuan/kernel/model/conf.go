@@ -123,10 +123,86 @@ func InitConf() {
 		if data, err := os.ReadFile(confPath); err != nil {
 			logging.LogErrorf("load conf [%s] failed: %s", confPath, err)
 		} else {
+			// Сохраняем исходные данные для восстановления аккаунтов
+			originalConfData := data
 			if err = gulu.JSON.UnmarshalJSON(data, Conf); err != nil {
 				logging.LogErrorf("parse conf [%s] failed: %s", confPath, err)
 			} else {
 				logging.LogInfof("loaded conf [%s]", confPath)
+				// Сразу после загрузки проверяем и восстанавливаем аккаунты из исходного файла
+				logging.LogWarnf("🔍 [EARLY RESTORE] Starting account restore from conf.json")
+				var fileConf map[string]interface{}
+				if err := gulu.JSON.UnmarshalJSON(originalConfData, &fileConf); err == nil {
+					logging.LogWarnf("🔍 [EARLY RESTORE] Parsed conf.json successfully")
+					if publish, ok := fileConf["publish"].(map[string]interface{}); ok {
+						logging.LogWarnf("🔍 [EARLY RESTORE] Found publish section")
+						if auth, ok := publish["auth"].(map[string]interface{}); ok {
+							logging.LogWarnf("🔍 [EARLY RESTORE] Found auth section")
+							if accounts, ok := auth["accounts"].([]interface{}); ok {
+								logging.LogWarnf("🔍 [EARLY RESTORE] Found accounts array, length=%d", len(accounts))
+								if len(accounts) > 0 {
+									// Инициализируем Publish.Auth если нужно
+									if Conf.Publish == nil {
+										Conf.Publish = conf.NewPublish()
+									}
+									if Conf.Publish.Auth == nil {
+										Conf.Publish.Auth = &conf.BasicAuth{
+											Enable:   true,
+											Accounts: []*conf.BasicAuthAccount{},
+										}
+									}
+									// Восстанавливаем аккаунты из файла
+									accountsJSON, _ := gulu.JSON.MarshalJSON(accounts)
+									gulu.JSON.UnmarshalJSON(accountsJSON, &Conf.Publish.Auth.Accounts)
+									Conf.Publish.Auth.Enable = true
+									logging.LogWarnf("✅ [EARLY RESTORE] Restored %d accounts from conf.json immediately after load", len(Conf.Publish.Auth.Accounts))
+								} else {
+									// Если аккаунты пустые в conf.json, пробуем загрузить из резервного файла
+									logging.LogWarnf("⚠️ [EARLY RESTORE] No accounts in conf.json, trying backup file")
+									possiblePaths := []string{
+										filepath.Join(util.WorkspaceDir, "..", "users_db", "users_database.json"),
+										filepath.Join("/opt/siyuan", "users_db", "users_database.json"),
+										filepath.Join(util.ConfDir, "..", "..", "users_db", "users_database.json"),
+									}
+									for _, usersDbPath := range possiblePaths {
+										if gulu.File.IsExist(usersDbPath) {
+											if data, err := os.ReadFile(usersDbPath); err == nil {
+												var usersDb map[string]interface{}
+												if err := gulu.JSON.UnmarshalJSON(data, &usersDb); err == nil {
+													if accounts, ok := usersDb["accounts"].([]interface{}); ok && len(accounts) > 0 {
+														// Инициализируем Publish.Auth если нужно
+														if Conf.Publish == nil {
+															Conf.Publish = conf.NewPublish()
+														}
+														if Conf.Publish.Auth == nil {
+															Conf.Publish.Auth = &conf.BasicAuth{
+																Enable:   true,
+																Accounts: []*conf.BasicAuthAccount{},
+															}
+														}
+														accountsJSON, _ := gulu.JSON.MarshalJSON(accounts)
+														gulu.JSON.UnmarshalJSON(accountsJSON, &Conf.Publish.Auth.Accounts)
+														Conf.Publish.Auth.Enable = true
+														logging.LogWarnf("✅ [EARLY RESTORE] Restored %d accounts from backup file %s", len(Conf.Publish.Auth.Accounts), usersDbPath)
+														break
+													}
+												}
+											}
+										}
+									}
+								}
+							} else {
+								logging.LogWarnf("⚠️ [EARLY RESTORE] No accounts key found in auth section")
+							}
+						} else {
+							logging.LogWarnf("⚠️ [EARLY RESTORE] No auth section found")
+						}
+					} else {
+						logging.LogWarnf("⚠️ [EARLY RESTORE] No publish section found")
+					}
+				} else {
+					logging.LogWarnf("⚠️ [EARLY RESTORE] Failed to parse conf.json: %v", err)
+				}
 			}
 		}
 	}
@@ -428,8 +504,81 @@ func InitConf() {
 		Conf.OpenHelp = false
 	}
 
+	// Загружаем аккаунты из файла, если они есть, но не загружены
+	// Это нужно, так как приложение может перезаписать конфиг при сохранении
+	logging.LogWarnf("🔍 [ACCOUNT RESTORE] Starting account restore check")
+	logging.LogWarnf("🔍 [ACCOUNT RESTORE] Conf.Publish=%v", Conf.Publish != nil)
+	if Conf.Publish != nil {
+		logging.LogWarnf("🔍 [ACCOUNT RESTORE] Conf.Publish.Auth=%v", Conf.Publish.Auth != nil)
+		if Conf.Publish.Auth != nil {
+			logging.LogWarnf("🔍 [ACCOUNT RESTORE] Accounts count=%d, Enable=%v", len(Conf.Publish.Auth.Accounts), Conf.Publish.Auth.Enable)
+		}
+	}
+	accountsCount := 0
+	if Conf.Publish != nil && Conf.Publish.Auth != nil {
+		accountsCount = len(Conf.Publish.Auth.Accounts)
+	}
+	logging.LogWarnf("🔍 [ACCOUNT RESTORE] Final check: Publish=%v, Auth=%v, Accounts count=%d", Conf.Publish != nil, Conf.Publish != nil && Conf.Publish.Auth != nil, accountsCount)
+	if Conf.Publish != nil && Conf.Publish.Auth != nil && len(Conf.Publish.Auth.Accounts) == 0 {
+		confPath := filepath.Join(util.ConfDir, "conf.json")
+		if gulu.File.IsExist(confPath) {
+			if data, err := os.ReadFile(confPath); err == nil {
+				var fileConf map[string]interface{}
+				if err := gulu.JSON.UnmarshalJSON(data, &fileConf); err == nil {
+					if publish, ok := fileConf["publish"].(map[string]interface{}); ok {
+						if auth, ok := publish["auth"].(map[string]interface{}); ok {
+							if accounts, ok := auth["accounts"].([]interface{}); ok && len(accounts) > 0 {
+								// Восстанавливаем аккаунты из файла
+								accountsJSON, _ := gulu.JSON.MarshalJSON(accounts)
+								gulu.JSON.UnmarshalJSON(accountsJSON, &Conf.Publish.Auth.Accounts)
+								logging.LogWarnf("✅ Restored %d accounts from conf.json file", len(Conf.Publish.Auth.Accounts))
+							} else {
+								logging.LogWarnf("⚠️ No accounts found in conf.json (accounts type: %T, len: %d)", accounts, len(accounts))
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Если аккаунты все еще пустые, пробуем загрузить из резервного файла
+		if len(Conf.Publish.Auth.Accounts) == 0 {
+			logging.LogWarnf("⚠️ No accounts found in conf.json, trying to restore from backup file")
+			// Пробуем несколько возможных путей
+			possiblePaths := []string{
+				filepath.Join(util.WorkspaceDir, "..", "users_db", "users_database.json"),
+				filepath.Join("/opt/siyuan", "users_db", "users_database.json"),
+				filepath.Join(util.ConfDir, "..", "..", "users_db", "users_database.json"),
+			}
+			for _, usersDbPath := range possiblePaths {
+				logging.LogWarnf("🔍 Checking backup file at: %s (exists: %v)", usersDbPath, gulu.File.IsExist(usersDbPath))
+				if gulu.File.IsExist(usersDbPath) {
+					if data, err := os.ReadFile(usersDbPath); err == nil {
+						var usersDb map[string]interface{}
+						if err := gulu.JSON.UnmarshalJSON(data, &usersDb); err == nil {
+							if accounts, ok := usersDb["accounts"].([]interface{}); ok && len(accounts) > 0 {
+								accountsJSON, _ := gulu.JSON.MarshalJSON(accounts)
+								gulu.JSON.UnmarshalJSON(accountsJSON, &Conf.Publish.Auth.Accounts)
+								Conf.Publish.Auth.Enable = true
+								logging.LogWarnf("✅ Restored %d accounts from users_database.json backup file at %s", len(Conf.Publish.Auth.Accounts), usersDbPath)
+								break
+							} else {
+								logging.LogWarnf("No accounts found in backup file at %s", usersDbPath)
+							}
+						} else {
+							logging.LogWarnf("Failed to parse backup file at %s: %v", usersDbPath, err)
+						}
+					} else {
+						logging.LogWarnf("Failed to read backup file at %s: %v", usersDbPath, err)
+					}
+				}
+			}
+		}
+	}
+
 	// Инициализируем аккаунты пользователей для входа по логину/паролю
 	// Важно: вызываем после инициализации Conf.Publish
+	// Инициализируем аккаунты независимо от publish.enable, так как они используются для логина
 	if Conf.Publish != nil && Conf.Publish.Auth != nil {
 		InitAccounts()
 	} else {
@@ -920,7 +1069,7 @@ func enableLuteInlineSyntax(luteEngine *lute.Lute) {
 	luteEngine.SetGFMStrikethrough(true)
 }
 
-func (conf *AppConf) Save() {
+func (appConf *AppConf) Save() {
 	if util.ReadOnly {
 		return
 	}
@@ -928,11 +1077,47 @@ func (conf *AppConf) Save() {
 	Conf.m.Lock()
 	defer Conf.m.Unlock()
 
-	newData, _ := gulu.JSON.MarshalIndentJSON(Conf, "", "  ")
+	// Сохраняем существующие аккаунты перед сохранением, если они есть в файле
 	confPath := filepath.Join(util.ConfDir, "conf.json")
 	oldData, err := filelock.ReadFile(confPath)
+	var savedAccounts []*conf.BasicAuthAccount
+	if err == nil {
+		var oldConf map[string]interface{}
+		if err := gulu.JSON.UnmarshalJSON(oldData, &oldConf); err == nil {
+			if publish, ok := oldConf["publish"].(map[string]interface{}); ok {
+				if auth, ok := publish["auth"].(map[string]interface{}); ok {
+					if accounts, ok := auth["accounts"].([]interface{}); ok && len(accounts) > 0 {
+						// Сохраняем аккаунты из старого конфига
+						accountsJSON, _ := gulu.JSON.MarshalJSON(accounts)
+						gulu.JSON.UnmarshalJSON(accountsJSON, &savedAccounts)
+					}
+				}
+			}
+		}
+	}
+
+	newData, _ := gulu.JSON.MarshalIndentJSON(Conf, "", "  ")
+
+	// Восстанавливаем аккаунты, если они были сохранены и текущий конфиг их не содержит
+	if len(savedAccounts) > 0 && (Conf.Publish == nil || Conf.Publish.Auth == nil || len(Conf.Publish.Auth.Accounts) == 0) {
+		if Conf.Publish == nil {
+			Conf.Publish = conf.NewPublish()
+		}
+		if Conf.Publish.Auth == nil {
+			Conf.Publish.Auth = &conf.BasicAuth{
+				Enable:   true,
+				Accounts: savedAccounts,
+			}
+		} else {
+			Conf.Publish.Auth.Accounts = savedAccounts
+			Conf.Publish.Auth.Enable = true
+		}
+		// Пересоздаем JSON с восстановленными аккаунтами
+		newData, _ = gulu.JSON.MarshalIndentJSON(Conf, "", "  ")
+	}
+
 	if err != nil {
-		conf.save0(newData)
+		appConf.save0(newData)
 		return
 	}
 
@@ -940,7 +1125,7 @@ func (conf *AppConf) Save() {
 		return
 	}
 
-	conf.save0(newData)
+	appConf.save0(newData)
 }
 
 func (conf *AppConf) save0(data []byte) {

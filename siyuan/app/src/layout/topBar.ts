@@ -28,7 +28,7 @@ export const initBar = (app: App) => {
     <span class="toolbar__text">${getWorkspaceName()}</span>
     <svg class="toolbar__svg"><use xlink:href="#iconDown"></use></svg>
 </div>
-<div id="barSync" class="ariaLabel toolbar__item${window.siyuan.config.readonly ? " fn__none" : ""}">
+<div id="barSync" class="ariaLabel toolbar__item fn__none">
     <svg><use xlink:href="#iconCloudSucc"></use></svg>
 </div>
 <button id="barBack" class="ariaLabel toolbar__item toolbar__item--disabled" aria-label="${window.siyuan.languages.goBack} ${updateHotkeyTip(window.siyuan.config.keymap.general.goBack.custom)}">
