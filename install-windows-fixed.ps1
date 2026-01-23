@@ -1,4 +1,4 @@
-# Автоматическая установка DIGroup для Windows
+﻿# Автоматическая установка DIGroup для Windows
 # Использование: .\install-windows.ps1
 # Требуется: PowerShell 5.1+ и Docker Desktop
 
@@ -33,14 +33,18 @@ function Write-Log($message) {
 
 # Генерация паролей
 function Generate-Password {
+    $rng = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
     $bytes = New-Object byte[] 25
-    [System.Security.Cryptography.RandomNumberGenerator]::Fill($bytes)
+    $rng.GetBytes($bytes)
+    $rng.Dispose()
     return [Convert]::ToBase64String($bytes).Substring(0, 25) -replace '[+/=]', ''
 }
 
 function Generate-AuthCode {
+    $rng = New-Object System.Security.Cryptography.RNGCryptoServiceProvider
     $bytes = New-Object byte[] 16
-    [System.Security.Cryptography.RandomNumberGenerator]::Fill($bytes)
+    $rng.GetBytes($bytes)
+    $rng.Dispose()
     return ($bytes | ForEach-Object { $_.ToString("x2") }) -join ''
 }
 
@@ -124,7 +128,7 @@ Write-Output ""
 
 # Создание docker-compose.yml
 Write-Log "Создание docker-compose.yml..."
-$dockerCompose = @'
+$dockerCompose = @"
 version: '3.8'
 
 services:
@@ -138,14 +142,14 @@ services:
       - "6806:6806"
     environment:
       - TZ=Europe/Moscow
-      - ACCESS_AUTH_CODE=`${ACCESS_AUTH_CODE}
+      - ACCESS_AUTH_CODE=${AccessAuthCode}
     volumes:
       - ./workspace:/opt/siyuan/workspace
       - ./data:/opt/siyuan/data
     command: [
       "/opt/siyuan/kernel",
       "--workspace=/opt/siyuan/workspace",
-      "--accessAuthCode=`${ACCESS_AUTH_CODE}",
+      "--accessAuthCode=${AccessAuthCode}",
       "--port=6806"
     ]
     healthcheck:
@@ -164,8 +168,8 @@ services:
     ports:
       - "54322:5432"
     environment:
-      POSTGRES_PASSWORD: `${POSTGRES_PASSWORD}
-      JWT_SECRET: `${JWT_SECRET}
+      POSTGRES_PASSWORD: ${PostgresPassword}
+      JWT_SECRET: ${JwtSecret}
     volumes:
       - supabase_db_data_test:/var/lib/postgresql/data
     healthcheck:
@@ -183,10 +187,10 @@ services:
     ports:
       - "3001:3000"
     environment:
-      PGRST_DB_URI: postgres://supabase_admin:`${POSTGRES_PASSWORD}@supabase-db:5432/postgres
+      PGRST_DB_URI: postgres://supabase_admin:${PostgresPassword}@supabase-db:5432/postgres
       PGRST_DB_SCHEMAS: public
       PGRST_DB_ANON_ROLE: anon
-      PGRST_JWT_SECRET: `${JWT_SECRET}
+      PGRST_JWT_SECRET: ${JwtSecret}
     depends_on:
       supabase-db:
         condition: service_healthy
@@ -215,7 +219,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=`${GRAFANA_PASSWORD}
+      - GF_SECURITY_ADMIN_PASSWORD=${GrafanaPassword}
       - GF_SERVER_ROOT_URL=http://localhost:3000
     volumes:
       - grafana_data_test:/var/lib/grafana
@@ -232,13 +236,7 @@ volumes:
 networks:
   digroup-network:
     driver: bridge
-'@
-
-# Замена переменных в docker-compose
-$dockerCompose = $dockerCompose -replace '\$\{ACCESS_AUTH_CODE\}', $AccessAuthCode
-$dockerCompose = $dockerCompose -replace '\$\{POSTGRES_PASSWORD\}', $PostgresPassword
-$dockerCompose = $dockerCompose -replace '\$\{JWT_SECRET\}', $JwtSecret
-$dockerCompose = $dockerCompose -replace '\$\{GRAFANA_PASSWORD\}', $GrafanaPassword
+"@
 
 $dockerCompose | Out-File -FilePath (Join-Path $TestDir "docker-compose.yml") -Encoding UTF8
 Write-Success "docker-compose.yml создан"
@@ -265,8 +263,8 @@ Set-Location $TestDir
 
 # Загрузка переменных окружения
 Get-Content (Join-Path $TestDir ".env") | ForEach-Object {
-    if (`$_ -match '^([^=]+)=(.*)$') {
-        [Environment]::SetEnvironmentVariable(`$matches[1], `$matches[2], "Process")
+    if ($_ -match '^([^=]+)=(.*)$') {
+        [Environment]::SetEnvironmentVariable($matches[1], $matches[2], "Process")
     }
 }
 

@@ -3,39 +3,32 @@ FROM --platform=$BUILDPLATFORM node:21 AS node-build
 ARG NPM_REGISTRY=
 
 WORKDIR /app
-ADD app/package.json app/pnpm* app/.npmrc .
+COPY app/package.json ./
+COPY app/pnpm-lock.yaml* ./
+COPY app/.npmrc* ./
 
-RUN <<EORUN
-#!/bin/bash -e
-corepack enable
-corepack install --global $(node -e 'console.log(require("./package.json").packageManager)')
-npm config set registry ${NPM_REGISTRY}
-pnpm install --silent
-EORUN
+RUN corepack enable && \
+    corepack install --global $(node -e 'console.log(require("./package.json").packageManager)') && \
+    npm config set registry ${NPM_REGISTRY} && \
+    pnpm install --silent
 
-ADD app/ .
-RUN <<EORUN
-#!/bin/bash -e
-pnpm run build
-mkdir /artifacts
-mv appearance stage guide changelogs /artifacts/
-EORUN
+COPY app/ .
+RUN pnpm run build && \
+    mkdir /artifacts && \
+    mv appearance stage guide changelogs /artifacts/
 
 FROM golang:1.25-alpine AS go-build
 
-RUN <<EORUN
-#!/bin/sh -e
-apk add --no-cache gcc musl-dev
-go env -w GO111MODULE=on
-go env -w CGO_ENABLED=1
-EORUN
+RUN apk add --no-cache gcc musl-dev && \
+    go env -w GO111MODULE=on && \
+    go env -w CGO_ENABLED=1
 
 WORKDIR /kernel
-ADD kernel/go.* .
+COPY kernel/go.* .
 RUN --mount=type=cache,target=/root/.cache/go-build --mount=type=cache,target=/go/pkg \
     go mod download
 
-ADD kernel/ .
+COPY kernel/ .
 RUN --mount=type=cache,target=/root/.cache/go-build --mount=type=cache,target=/go/pkg \
     go build --tags fts5 -v -ldflags "-s -w"
 
@@ -50,8 +43,7 @@ ENV RUN_IN_CONTAINER=true
 EXPOSE 6806
 
 WORKDIR /opt/siyuan/
-COPY --from=go-build --chmod=755 /kernel/kernel /kernel/entrypoint.sh .
+COPY --from=go-build --chmod=755 /kernel/kernel .
 COPY --from=node-build /artifacts .
 
-ENTRYPOINT ["/opt/siyuan/entrypoint.sh"]
 CMD ["/opt/siyuan/kernel"]

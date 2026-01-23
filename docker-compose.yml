@@ -15,10 +15,15 @@ services:
       - PGID=${PGID:-1000}
       - SIYUAN_ACCESS_AUTH_CODE=${ACCESS_AUTH_CODE:-b226ba0f30a134fe9245792118bca202}
       - SIYUAN_WORKSPACE_PATH=/opt/siyuan/workspace
+      - OLLAMA_API_BASE=http://ollama:11434
     volumes:
       - ./workspace:/opt/siyuan/workspace
       - ./data:/opt/siyuan/data
-    command: ["--wd=/opt/siyuan", "--port=6806"]
+    command: [
+      "/opt/siyuan/kernel",
+      "--workspace=/opt/siyuan/workspace",
+      "--port=6806"
+    ]
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:6806/api/system/version"]
       interval: 30s
