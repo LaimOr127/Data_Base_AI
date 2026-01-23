@@ -1251,7 +1251,7 @@
   },
   "ai": {
     "openAI": {
-      "apiKey": "",
+      "apiKey": "ollama",
       "apiTimeout": 60,
       "apiProxy": "",
       "apiModel": "llama3.2:3b",
@@ -1260,7 +1260,7 @@
       "apiMaxContexts": 10,
       "apiBaseURL": "http://ollama:11434",
       "apiUserAgent": "DIGroup/3.4.2 docker/linux",
-      "apiProvider": "OpenAI",
+      "apiProvider": "Ollama",
       "apiVersion": ""
     },
     "gemini": {

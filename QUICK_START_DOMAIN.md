@@ -2,59 +2,73 @@
 
 Краткая инструкция для настройки доступа к DIGroup через домен `digroupdb.duckdns.org`.
 
-## Шаг 1: Настройка Nginx
+## Автоматическая настройка (рекомендуется)
+
+Для автоматической настройки всех доменов и SSL используйте скрипт:
 
 ```bash
-sudo ./setup-nginx.sh digroupdb.duckdns.org
+./setup-domains.sh
 ```
 
-## Шаг 2: Настройка DNS
+Этот скрипт автоматически:
+- Установит и настроит Nginx
+- Получит SSL сертификаты (или создаст самоподписанные для тестирования)
+- Настроит домены для всех сервисов
+- Настроит автообновление сертификатов
 
-### Вариант A: Только основной домен (используйте пути)
+## Ручная настройка
 
-Если DuckDNS не поддерживает субдомены, используйте конфигурацию с путями:
+### Шаг 1: Настройка DNS
+
+**Важно:** Убедитесь, что DNS запись настроена в DuckDNS:
+- `digroupdb.duckdns.org` → IP вашего сервера (85.198.99.150)
+
+**Примечание:** DuckDNS не поддерживает субдомены напрямую. Для работы субдоменов (`grafana.digroupdb.duckdns.org`, `prometheus.digroupdb.duckdns.org`) необходимо настроить их через другой DNS-провайдер или использовать конфигурацию с путями (см. ниже).
+
+### Шаг 2: Настройка Nginx
 
 ```bash
-# Используйте конфигурацию с путями
+# На сервере
+sudo cp deploy/nginx/digroup-full.conf /etc/nginx/sites-available/digroup
+sudo ln -sf /etc/nginx/sites-available/digroup /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+### Шаг 3: Настройка SSL
+
+```bash
+# На сервере
+sudo certbot certonly --webroot -w /var/www/certbot -d digroupdb.duckdns.org
+# Или используйте DNS-01 challenge для субдоменов
+sudo certbot certonly --manual --preferred-challenges dns -d digroupdb.duckdns.org -d grafana.digroupdb.duckdns.org -d prometheus.digroupdb.duckdns.org
+```
+
+## Проверка
+
+После настройки проверьте доступ:
+
+### С субдоменами (если настроены в DNS):
+- https://digroupdb.duckdns.org - основной сервис DIGroup
+- https://grafana.digroupdb.duckdns.org - Grafana
+- https://prometheus.digroupdb.duckdns.org - Prometheus
+
+**Примечание:** Если используется самоподписанный сертификат, браузеры будут показывать предупреждение о безопасности. Это нормально для тестирования. Для продакшена необходимо получить настоящий сертификат Let's Encrypt через DNS-01 challenge.
+
+### Альтернатива: Конфигурация с путями
+
+Если субдомены не настроены, можно использовать конфигурацию с путями:
+
+```bash
 sudo cp deploy/nginx/digroup-paths.conf /etc/nginx/sites-available/digroup
 sudo sed -i 's/digroupdb\.duckdns\.org/digroupdb.duckdns.org/g' /etc/nginx/sites-available/digroup
 sudo ln -sf /etc/nginx/sites-available/digroup /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-
-# Настройте Grafana для работы с путями
-# Добавьте в .env:
-# GRAFANA_ROOT_URL=https://digroupdb.duckdns.org/grafana/
-# GRAFANA_SERVE_FROM_SUB_PATH=true
-# Затем: docker compose restart grafana
 ```
 
-### Вариант B: С субдоменами
-
-1. Обновите IP в DuckDNS (через веб-интерфейс или API)
-2. Если ваш DNS-провайдер поддерживает субдомены, добавьте A-записи:
-   - `grafana.digroupdb.duckdns.org` → IP сервера
-   - `prometheus.digroupdb.duckdns.org` → IP сервера
-   - `node-exporter.digroupdb.duckdns.org` → IP сервера
-
-## Шаг 3: Настройка SSL
-
-```bash
-sudo ./setup-ssl.sh digroupdb.duckdns.org
-```
-
-## Шаг 4: Проверка
-
-После настройки проверьте доступ:
-
-### С субдоменами:
-- https://digroupdb.duckdns.org
-- https://grafana.digroupdb.duckdns.org
-- https://prometheus.digroupdb.duckdns.org
-
-### С путями:
-- https://digroupdb.duckdns.org
-- https://digroupdb.duckdns.org/grafana/
-- https://digroupdb.duckdns.org/prometheus/
+Тогда доступ будет через:
+- https://digroupdb.duckdns.org - основной сервис
+- https://digroupdb.duckdns.org/grafana/ - Grafana
+- https://digroupdb.duckdns.org/prometheus/ - Prometheus
 
 ## Решение проблем
 

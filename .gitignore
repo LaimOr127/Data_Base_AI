@@ -75,3 +75,76 @@ go.work
 
 # Data directories
 data/
+
+# Sensitive information
+SERVER_INFO.md
+users_db/
+*.key
+*.pem
+*.crt
+*.cert
+id_rsa
+id_rsa.pub
+*.pub
+
+# Docker volumes and data
+docker-volumes/
+volumes/
+supabase_db_data/
+supabase_db_data_test/
+*.db
+*.sqlite
+*.sqlite3
+
+# Compiled binaries
+bin/
+dist/
+build/
+*.bin
+
+# OS specific
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+.pnpm-store/
+.next/
+.nuxt/
+.out/
+.output/
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Dependency directories
+vendor/
+bower_components/
+
+# Lock files (optional - uncomment if you don't want to commit them)
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+# poetry.lock
+
+# Local configuration overrides
+docker-compose.override.yml
+*.local.yml
+*.local.yaml
