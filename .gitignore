@@ -1,115 +1,10 @@
-# macOS
+### ОС / редакторы
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-store/
-
-# SiYuan workspace data (should be local only)
-workspace/data/
-workspace/history/
-workspace/temp/
-workspace/conf/conf.json
-workspace/conf/conf.json.backup.*
-
-# Backups
-backups/
-*.tar.gz
-*.zip
-
-# Logs
-logs/
-*.log
-
-# Test directories
-digroup-test/
-test/
-
-# Large binaries (should not be in git)
-**/pandoc/bin/pandoc
-**/electron/dist/Electron.app/
-**/Electron Framework.framework/
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-
-# Go
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-go.work
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.backup
-
-# Data directories
-data/
-
-# Sensitive information
-SERVER_INFO.md
-users_db/
-*.key
-*.pem
-*.crt
-*.cert
-id_rsa
-id_rsa.pub
-*.pub
-
-# Docker volumes and data
-docker-volumes/
-volumes/
-supabase_db_data/
-supabase_db_data_test/
-*.db
-*.sqlite
-*.sqlite3
-
-# Compiled binaries
-bin/
-dist/
-build/
-*.bin
-
-# OS specific
 Thumbs.db
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
 
-# Editor directories
 .vscode/
 .idea/
 *.swp
@@ -119,32 +14,108 @@ Thumbs.db
 .classpath
 .settings/
 
-# Cache directories
-.cache/
+### Логи и временные файлы
+logs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+
+### Архивы и бэкапы
+backups/
+*.tar.gz
+*.zip
+
+### Переменные окружения / секреты
+.env*
+!.env.example
+!.env.sample
+
+*.key
+*.pem
+*.crt
+*.cert
+id_rsa
+id_rsa.pub
+
+### Данные / БД (не хранить в git)
+data/
+users_db/
+*.db
+*.sqlite
+*.sqlite3
+
+### Docker volumes (локальные данные)
+docker-volumes/
+volumes/
+supabase_db_data/
+supabase_db_data_test/
+
+### Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
 .npm/
 .yarn/
-.pnpm-store/
+coverage/
+*.lcov
+.nyc_output/
 .next/
 .nuxt/
 .out/
 .output/
 
-# Coverage reports
-coverage/
-*.lcov
-.nyc_output/
+### Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
 
-# Dependency directories
+### Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+### Сборки/артефакты
+bin/
+dist/
+build/
+*.bin
+
+### Зависимости (если используете vendoring)
 vendor/
 bower_components/
 
-# Lock files (optional - uncomment if you don't want to commit them)
-# package-lock.json
-# yarn.lock
-# Pipfile.lock
-# poetry.lock
+### SiYuan workspace (локальные данные, в репозиторий не кладём)
+workspace/data/
+workspace/history/
+workspace/temp/
+workspace/conf/conf.json
+workspace/conf/conf.json.backup.*
 
-# Local configuration overrides
+### Тестовые/локальные копии
+digroup-test/
+test/
+
+### Большие вендорные бинарники
+**/pandoc/bin/pandoc
+**/electron/dist/Electron.app/
+**/Electron Framework.framework/
+
+### Локальные оверрайды
 docker-compose.override.yml
 *.local.yml
 *.local.yaml
+
+### Потенциально чувствительные документы
+SERVER_INFO.md
