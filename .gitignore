@@ -233,6 +233,90 @@ SERVER_INFO.md
 *.rej
 *.patch
 
+### Docker
+.dockerignore
+docker-compose.override.yml
+*.docker-compose.yml
+docker-compose.*.yml
+!docker-compose.yml
+
+### IDE / редакторы (дополнительно)
+.cursor/
+*.code-workspace
+*.sublime-*
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+### Windows
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+### macOS
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DS_Store
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+### Go (дополнительно)
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+*.coverprofile
+*.cover
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Build artifacts
+/bin/
+/out/
+/release/
+
+### TypeScript / JavaScript
+*.js.map
+*.d.ts.map
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+### Webpack
+.webpack/
+webpack-stats.json
+
+### Electron
+dist-electron/
+out-electron/
+
 ### Другие
 .turbo/
 .vercel/
@@ -242,3 +326,53 @@ temp/
 tmp/
 *.lock
 *.lockb
+*.log.*
+*.old
+*.orig
+*.rej
+*.patch
+*.diff
+
+### Локальные конфигурации
+*.local
+*.local.*
+local.*
+local/
+.env.local.*
+!.env.example
+!.env.sample
+!.env.template
+
+### Временные файлы проектов
+*.swp
+*.swo
+*~
+.#*
+\#*#
+.*.sw?
+*.sublime-*
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+### Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

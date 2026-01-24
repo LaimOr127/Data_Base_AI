@@ -544,6 +544,7 @@ interface ISiyuan {
      * 是否在发布服务下访问
      */
     isPublish?: boolean;
+    isAdmin?: boolean;
 }
 
 interface IOperation {

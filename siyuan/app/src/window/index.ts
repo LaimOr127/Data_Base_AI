@@ -169,6 +169,7 @@ class App {
             window.siyuan.config = response.data.conf;
             updateControlAlt();
             window.siyuan.isPublish = response.data.isPublish;
+            window.siyuan.isAdmin = response.data.isAdmin || false;
             await loadPlugins(this);
             getLocalStorage(() => {
                 fetchGet(`/appearance/langs/${window.siyuan.config.appearance.lang}.json?v=${Constants.SIYUAN_VERSION}`, (lauguages: IObject) => {

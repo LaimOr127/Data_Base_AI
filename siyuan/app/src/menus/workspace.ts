@@ -152,7 +152,7 @@ export const workspaceMenu = (app: App, rect: DOMRect) => {
     fetchPost("/api/system/getWorkspaces", {}, (response) => {
         window.siyuan.menus.menu.remove();
         window.siyuan.menus.menu.element.setAttribute("data-name", Constants.MENU_BAR_WORKSPACE);
-        if (!window.siyuan.config.readonly) {
+        if (!window.siyuan.config.readonly && window.siyuan.isAdmin) {
             window.siyuan.menus.menu.append(new MenuItem({
                 id: "config",
                 label: window.siyuan.languages.config,

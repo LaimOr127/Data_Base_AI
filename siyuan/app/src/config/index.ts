@@ -21,6 +21,7 @@ import {App} from "../index";
 import {isHuawei, isInHarmony} from "../protyle/util/compatibility";
 import {Constants} from "../constants";
 import {focusByRange} from "../protyle/util/selection";
+import {showMessage} from "../dialog/message";
 /// #endif
 
 export const genItemPanel = (type: string, containerElement: Element, app: App) => {
@@ -99,6 +100,11 @@ export const openSetting = (app: App) => {
     /// #if MOBILE
     popMenu();
     /// #else
+    // Проверка прав доступа: только администраторы могут открывать настройки
+    if (!window.siyuan.isAdmin) {
+        showMessage(window.siyuan.languages.accessDenied || "Доступ запрещен. Только администраторы могут открывать настройки.", 3000, "error");
+        return;
+    }
     const exitDialog = window.siyuan.dialogs.find((item) => {
         if (item.element.querySelector(".config__tab-container")) {
             item.destroy();

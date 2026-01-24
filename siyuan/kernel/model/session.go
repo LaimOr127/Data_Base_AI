@@ -192,8 +192,9 @@ func LoginAuth(c *gin.Context) {
 
 		// Успешный вход по логину/паролю
 		workspaceSession.UserLogin = username
-		// Устанавливаем AccessAuthCode для доступа к API и интерфейсу
-		workspaceSession.AccessAuthCode = Conf.AccessAuthCode
+		// НЕ устанавливаем AccessAuthCode при входе по логину/паролю
+		// Роль будет определяться из аккаунта, а не из AccessAuthCode
+		// workspaceSession.AccessAuthCode = Conf.AccessAuthCode
 		util.WrongAuthCount = 0
 		workspaceSession.Captcha = gulu.Rand.String(7)
 
@@ -441,6 +442,7 @@ func CheckAuth(c *gin.Context) {
 
 	// СНАЧАЛА проверяем вход по логину/паролю через сессию (это приоритетнее для пользователей)
 	// Проверка входа по логину/паролю через сессию
+	// Если пользователь вошел по логину/паролю, его роль определяется из аккаунта, а не из AccessAuthCode
 	if Conf.Publish != nil && Conf.Publish.Auth != nil && Conf.Publish.Auth.Enable && workspaceSession.UserLogin != "" {
 		account := GetBasicAuthAccount(workspaceSession.UserLogin)
 		if account != nil && account.Username != "" {
@@ -453,8 +455,9 @@ func CheckAuth(c *gin.Context) {
 		}
 	}
 
-	// Затем проверяем AccessAuthCode (для случаев без логина/пароля)
-	if workspaceSession.AccessAuthCode == Conf.AccessAuthCode {
+	// Затем проверяем AccessAuthCode (только для случаев без логина/пароля)
+	// AccessAuthCode дает администраторские права только если пользователь НЕ вошел по логину/паролю
+	if workspaceSession.AccessAuthCode == Conf.AccessAuthCode && workspaceSession.UserLogin == "" {
 		c.Set(RoleContextKey, RoleAdministrator)
 		c.Next()
 		return

@@ -13,7 +13,7 @@ export const openTopBarMenu = (app: App, target?: Element) => {
         id: "manage",
         icon: "iconSettings",
         label: window.siyuan.languages.manage,
-        ignore: isHuawei() || window.siyuan.config.readonly,
+        ignore: isHuawei() || window.siyuan.config.readonly || !window.siyuan.isAdmin,
         click() {
             openSetting(app).element.querySelector('.b3-tab-bar [data-name="bazaar"]').dispatchEvent(new CustomEvent("click"));
         }

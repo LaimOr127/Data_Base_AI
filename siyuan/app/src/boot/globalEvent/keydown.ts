@@ -1365,7 +1365,7 @@ export const windowKeyDown = (app: App, event: KeyboardEvent) => {
         event.preventDefault();
         return;
     }
-    if (!isTabWindow && !window.siyuan.config.readonly && matchHotKey(window.siyuan.config.keymap.general.config.custom, event)) {
+    if (!isTabWindow && !window.siyuan.config.readonly && window.siyuan.isAdmin && matchHotKey(window.siyuan.config.keymap.general.config.custom, event)) {
         openSetting(app);
         event.preventDefault();
         return;

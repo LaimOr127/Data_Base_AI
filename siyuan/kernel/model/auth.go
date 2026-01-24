@@ -206,6 +206,7 @@ func DeleteSession(sessionID string) {
 }
 
 func InitAccounts() {
+	// Очищаем кэш аккаунтов при инициализации, чтобы загрузить актуальные роли
 	accountsMap = AccountsMap{
 		"": &Account{Role: RoleVisitor}, // 匿名用户
 	}

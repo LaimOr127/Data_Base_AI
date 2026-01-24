@@ -169,7 +169,7 @@ export const initBar = (app: App) => {
                 event.stopPropagation();
                 break;
             } else if (targetId === "toolbarVIP") {
-                if (!window.siyuan.config.readonly) {
+                if (!window.siyuan.config.readonly && window.siyuan.isAdmin) {
                     const dialogSetting = openSetting(app);
                     dialogSetting.element.querySelector('.b3-tab-bar [data-name="account"]').dispatchEvent(new CustomEvent("click"));
                 }

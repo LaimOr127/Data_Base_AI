@@ -531,12 +531,13 @@ func getConf(c *gin.Context) {
 	// REF: https://github.com/siyuan-note/siyuan/issues/11364
 	role := model.GetGinContextRole(c)
 	isPublish := model.IsReadOnlyRole(role)
+	isAdmin := model.IsValidRole(role, []model.Role{
+		model.RoleAdministrator,
+	})
 	if isPublish {
 		maskedConf.ReadOnly = true
 	}
-	if !model.IsValidRole(role, []model.Role{
-		model.RoleAdministrator,
-	}) {
+	if !isAdmin {
 		model.HideConfSecret(maskedConf)
 	}
 
@@ -544,6 +545,7 @@ func getConf(c *gin.Context) {
 		"conf":      maskedConf,
 		"start":     !util.IsUILoaded,
 		"isPublish": isPublish,
+		"isAdmin":   isAdmin,
 	}
 }
 
