@@ -579,12 +579,15 @@ func InitConf() {
 	// Инициализируем аккаунты пользователей для входа по логину/паролю
 	// Важно: вызываем после инициализации Conf.Publish
 	// Инициализируем аккаунты независимо от publish.enable, так как они используются для логина
+	logging.LogInfof("[INIT] Before InitAccounts()")
 	if Conf.Publish != nil && Conf.Publish.Auth != nil {
 		InitAccounts()
+		logging.LogInfof("[INIT] After InitAccounts()")
 	} else {
 		logging.LogWarnf("Publish.Auth is nil, skipping account initialization")
 	}
 
+	logging.LogInfof("[INIT] Before Conf.Repo initialization")
 	if nil == Conf.Repo {
 		Conf.Repo = conf.NewRepo()
 	}
@@ -676,35 +679,79 @@ func InitConf() {
 
 	// Инициализация Ollama с локальным сервером и облачными моделями
 	if nil == Conf.AI.Ollama {
-		// Используем локальный Ollama сервер (http://localhost:11434)
-		// Облачная модель nemotron-3-nano:30b-cloud работает через локальный сервер
+		// Используем локальный Ollama сервер (http://localhost:11434) или из переменной окружения
+		// Облачная модель deepseek-v3.1:671b-cloud работает через локальный сервер
 		// но выполняется в облаке, не нагружая ПК
+		ollamaBaseURL := "http://localhost:11434" // По умолчанию локальный сервер
+		if baseURL := os.Getenv("OLLAMA_API_BASE"); "" != baseURL {
+			ollamaBaseURL = baseURL // Используем переменную окружения для Docker сети
+		}
 		Conf.AI.Ollama = &conf.Ollama{
 			APITemperature: 1.0,
 			APIMaxContexts: 7,
 			APITimeout:     30,
-			APIModel:       "nemotron-3-nano:30b-cloud", // Облачная модель из каталога Ollama
-			APIBaseURL:     "http://localhost:11434",    // Локальный Ollama сервер
+			APIModel:       "deepseek-v3.1:671b-cloud", // Облачная модель из каталога Ollama
+			APIBaseURL:     ollamaBaseURL,
 			APIMaxTokens:   0,
 			APIKey:         "", // Не требуется для локального Ollama
 		}
 	}
 	if "" == Conf.AI.Ollama.APIModel {
-		Conf.AI.Ollama.APIModel = "nemotron-3-nano:30b-cloud" // Облачная модель
+		Conf.AI.Ollama.APIModel = "deepseek-v3.1:671b-cloud" // Облачная модель
 		Conf.Save()
 	}
-	if "" == Conf.AI.Ollama.APIBaseURL {
-		Conf.AI.Ollama.APIBaseURL = "http://localhost:11434" // Локальный Ollama сервер
+	// Всегда проверяем переменную окружения и обновляем URL, если она установлена
+	// Это важно для Docker, где нужно использовать host.docker.internal вместо localhost
+	if baseURL := os.Getenv("OLLAMA_API_BASE"); "" != baseURL {
+		if Conf.AI.Ollama.APIBaseURL != baseURL {
+			Conf.AI.Ollama.APIBaseURL = baseURL
+			Conf.Save()
+			logging.LogInfof("[INIT] Updated Ollama APIBaseURL from environment: %s", baseURL)
+		}
+	} else if "" == Conf.AI.Ollama.APIBaseURL {
+		ollamaBaseURL := "http://localhost:11434" // По умолчанию локальный сервер
+		Conf.AI.Ollama.APIBaseURL = ollamaBaseURL
 		Conf.Save()
 	}
 
 	// Автоматическая проверка и настройка Ollama в фоне
+	logging.LogInfof("[INIT] Before util.SafeGo for Ollama")
 	util.SafeGo(func() {
 		util.AutoSetupOllama()
-		if err := util.EnsureOllamaModel(Conf.AI.Ollama.APIModel); err != nil {
-			logging.LogWarnf("Ollama setup warning: %s", err)
+
+		// Пытаемся найти доступную модель, если текущая недоступна
+		ollamaBaseURL := Conf.AI.Ollama.APIBaseURL
+		if ollamaBaseURL == "" {
+			ollamaBaseURL = "http://localhost:11434"
+			if baseURL := os.Getenv("OLLAMA_API_BASE"); "" != baseURL {
+				ollamaBaseURL = baseURL
+			}
+		}
+
+		// Проверяем доступность текущей модели
+		modelAvailable := false
+		if util.CheckOllamaServer(ollamaBaseURL) {
+			availableModel := util.FindAvailableModel(ollamaBaseURL)
+			if availableModel != "" {
+				// Если найдена доступная модель и она отличается от текущей, обновляем конфигурацию
+				if availableModel != Conf.AI.Ollama.APIModel {
+					logging.LogInfof("[INIT] Switching to available Ollama model: %s (was: %s)", availableModel, Conf.AI.Ollama.APIModel)
+					Conf.AI.Ollama.APIModel = availableModel
+					Conf.Save()
+					modelAvailable = true
+				} else {
+					modelAvailable = true
+				}
+			}
+		}
+
+		if !modelAvailable {
+			if err := util.EnsureOllamaModel(Conf.AI.Ollama.APIModel); err != nil {
+				logging.LogWarnf("Ollama setup warning: %s", err)
+			}
 		}
 	})
+	logging.LogInfof("[INIT] After util.SafeGo for Ollama")
 	if 0 > Conf.AI.Ollama.APIMaxTokens {
 		Conf.AI.Ollama.APIMaxTokens = 0
 	}
@@ -714,8 +761,10 @@ func InitConf() {
 	if 1 > Conf.AI.Ollama.APIMaxContexts || 64 < Conf.AI.Ollama.APIMaxContexts {
 		Conf.AI.Ollama.APIMaxContexts = 7
 	}
+	logging.LogInfof("[INIT] Ollama configuration completed")
 
 	// Инициализация Gemini
+	logging.LogInfof("[INIT] Before Gemini initialization")
 	if nil == Conf.AI.Gemini {
 		Conf.AI.Gemini = &conf.Gemini{
 			APITemperature: 1.0,
@@ -738,31 +787,40 @@ func InitConf() {
 	if 1 > Conf.AI.Gemini.APIMaxContexts || 64 < Conf.AI.Gemini.APIMaxContexts {
 		Conf.AI.Gemini.APIMaxContexts = 7
 	}
+	logging.LogInfof("[INIT] Gemini configuration completed")
 
 	// Инициализация OpenAI
-	if "" == Conf.AI.OpenAI.APIModel {
-		Conf.AI.OpenAI.APIModel = openai.GPT3Dot5Turbo
+	logging.LogInfof("[INIT] Before OpenAI initialization, Conf.AI.OpenAI is nil: %v", Conf.AI.OpenAI == nil)
+	if Conf.AI.OpenAI == nil {
+		logging.LogWarnf("[INIT] Conf.AI.OpenAI is nil, skipping OpenAI initialization")
+	} else {
+		if "" == Conf.AI.OpenAI.APIModel {
+			Conf.AI.OpenAI.APIModel = openai.GPT3Dot5Turbo
+		}
+		if "" == Conf.AI.OpenAI.APIUserAgent {
+			Conf.AI.OpenAI.APIUserAgent = util.UserAgent
+		}
+		if strings.HasPrefix(Conf.AI.OpenAI.APIUserAgent, "SiYuan/") {
+			Conf.AI.OpenAI.APIUserAgent = util.UserAgent
+		}
+		if "" == Conf.AI.OpenAI.APIProvider {
+			Conf.AI.OpenAI.APIProvider = "OpenAI"
+		}
+		if 0 > Conf.AI.OpenAI.APIMaxTokens {
+			Conf.AI.OpenAI.APIMaxTokens = 0
+		}
+		if 0 >= Conf.AI.OpenAI.APITemperature || 2 < Conf.AI.OpenAI.APITemperature {
+			Conf.AI.OpenAI.APITemperature = 1.0
+		}
+		if 1 > Conf.AI.OpenAI.APIMaxContexts || 64 < Conf.AI.OpenAI.APIMaxContexts {
+			Conf.AI.OpenAI.APIMaxContexts = 7
+		}
+		logging.LogInfof("[INIT] OpenAI configuration completed")
 	}
-	if "" == Conf.AI.OpenAI.APIUserAgent {
-		Conf.AI.OpenAI.APIUserAgent = util.UserAgent
-	}
-	if strings.HasPrefix(Conf.AI.OpenAI.APIUserAgent, "SiYuan/") {
-		Conf.AI.OpenAI.APIUserAgent = util.UserAgent
-	}
-	if "" == Conf.AI.OpenAI.APIProvider {
-		Conf.AI.OpenAI.APIProvider = "OpenAI"
-	}
-	if 0 > Conf.AI.OpenAI.APIMaxTokens {
-		Conf.AI.OpenAI.APIMaxTokens = 0
-	}
-	if 0 >= Conf.AI.OpenAI.APITemperature || 2 < Conf.AI.OpenAI.APITemperature {
-		Conf.AI.OpenAI.APITemperature = 1.0
-	}
-	if 1 > Conf.AI.OpenAI.APIMaxContexts || 64 < Conf.AI.OpenAI.APIMaxContexts {
-		Conf.AI.OpenAI.APIMaxContexts = 7
-	}
+	logging.LogInfof("[INIT] OpenAI section completed")
 
 	// Сохраняем конфигурацию AI, если она была инициализирована
+	logging.LogInfof("[INIT] Before saving AI configuration")
 	if Conf.AI.Ollama != nil && "" != Conf.AI.Ollama.APIBaseURL {
 		// Сохраняем конфигурацию, чтобы Ollama был доступен после перезапуска
 		Conf.Save()
@@ -855,14 +913,21 @@ func InitConf() {
 	}
 
 	Conf.DataIndexState = 0
+	logging.LogInfof("[INIT] Before Conf.Save()")
 
 	Conf.Save()
+	logging.LogInfof("[INIT] After Conf.Save()")
 	logging.SetLogLevel(Conf.LogLevel)
+	logging.LogInfof("[INIT] After SetLogLevel()")
 
 	util.SetNetworkProxy(Conf.System.NetworkProxy.String())
+	logging.LogInfof("[INIT] After SetNetworkProxy()")
 
 	go util.InitPandoc()
 	go util.InitTesseract()
+	logging.LogInfof("[INIT] After InitPandoc/InitTesseract")
+
+	logging.LogInfof("[INIT] InitConf() completed successfully")
 }
 
 func initLang() {

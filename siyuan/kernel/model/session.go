@@ -192,6 +192,8 @@ func LoginAuth(c *gin.Context) {
 
 		// Успешный вход по логину/паролю
 		workspaceSession.UserLogin = username
+		// Устанавливаем AccessAuthCode для доступа к API и интерфейсу
+		workspaceSession.AccessAuthCode = Conf.AccessAuthCode
 		util.WrongAuthCount = 0
 		workspaceSession.Captcha = gulu.Rand.String(7)
 
@@ -546,6 +548,7 @@ func CheckAdminRole(c *gin.Context) {
 	if IsAdminRoleContext(c) {
 		c.Next()
 	} else {
+		logging.LogWarnf("Forbidden (admin required): role=%d path=%s", GetGinContextRole(c), c.Request.URL.Path)
 		c.AbortWithStatus(http.StatusForbidden)
 	}
 }
@@ -557,6 +560,7 @@ func CheckEditRole(c *gin.Context) {
 	}) {
 		c.Next()
 	} else {
+		logging.LogWarnf("Forbidden (edit required): role=%d path=%s", GetGinContextRole(c), c.Request.URL.Path)
 		c.AbortWithStatus(http.StatusForbidden)
 	}
 }
@@ -569,6 +573,7 @@ func CheckReadRole(c *gin.Context) {
 	}) {
 		c.Next()
 	} else {
+		logging.LogWarnf("Forbidden (read required): role=%d path=%s", GetGinContextRole(c), c.Request.URL.Path)
 		c.AbortWithStatus(http.StatusForbidden)
 	}
 }

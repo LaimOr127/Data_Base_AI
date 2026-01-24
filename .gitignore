@@ -4,6 +4,10 @@
 .LSOverride
 ._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
 .vscode/
 .idea/
@@ -13,6 +17,8 @@ Thumbs.db
 .project
 .classpath
 .settings/
+*.sublime-project
+*.sublime-workspace
 
 ### Логи и временные файлы
 logs/
@@ -21,45 +27,80 @@ logs/
 *.temp
 *.bak
 *.backup
+*.cache
+*.pid
+*.seed
+*.pid.lock
 
 ### Архивы и бэкапы
 backups/
 *.tar.gz
+*.tar
 *.zip
+*.rar
+*.7z
+*.gz
 
 ### Переменные окружения / секреты
-.env*
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
 !.env.example
 !.env.sample
+!.env.template
 
 *.key
 *.pem
 *.crt
 *.cert
+*.p12
+*.pfx
 id_rsa
 id_rsa.pub
+*.secret
+*.credentials
+secrets/
 
 ### Данные / БД (не хранить в git)
 data/
-users_db/
+users_db/users_database.json
+users_db/users_list.txt
+users_db/*.csv
+users_db/*.json
+!users_db/.gitkeep
 *.db
 *.sqlite
 *.sqlite3
+*.sql
+*.dump
 
 ### Docker volumes (локальные данные)
 docker-volumes/
 volumes/
 supabase_db_data/
 supabase_db_data_test/
+*.docker-compose.yml
+docker-compose.override.yml
+*.local.yml
+*.local.yaml
 
-### Node.js
+### Node.js / pnpm
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
 .pnpm-store/
 .npm/
 .yarn/
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
 coverage/
 *.lcov
 .nyc_output/
@@ -67,14 +108,37 @@ coverage/
 .nuxt/
 .out/
 .output/
+dist/
+build/
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
 
 ### Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+*.pyo
+*.pyd
 .Python
 venv/
 env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+*.egg-info/
+.eggs/
+*.egg
 
 ### Go
 *.exe
@@ -85,16 +149,28 @@ env/
 *.test
 *.out
 go.work
+go.work.sum
+vendor/
+*.a
+*.test
+*.prof
+*.trace
+*.coverprofile
+*.cover
+*.cov
 
 ### Сборки/артефакты
 bin/
 dist/
 build/
 *.bin
-
-### Зависимости (если используете vendoring)
-vendor/
-bower_components/
+*.o
+*.a
+*.lib
+*.obj
+target/
+out/
+release/
 
 ### SiYuan workspace (локальные данные, в репозиторий не кладём)
 workspace/data/
@@ -102,20 +178,67 @@ workspace/history/
 workspace/temp/
 workspace/conf/conf.json
 workspace/conf/conf.json.backup.*
+workspace/conf/appearance/*.json
+!workspace/conf/appearance/.gitkeep
+
+### SiYuan kernel (бинарники и временные файлы)
+siyuan/kernel/kernel
+siyuan/kernel/SiYuan-Kernel
+siyuan/kernel/*.exe
+siyuan/kernel/*.dll
+siyuan/kernel/*.so
+siyuan/kernel/*.dylib
+
+### SiYuan app (сборки)
+siyuan/app/stage/
+siyuan/app/dist/
+siyuan/app/.next/
+siyuan/app/.out/
+siyuan/app/.cache/
 
 ### Тестовые/локальные копии
 digroup-test/
 test/
+*.test.local
+*.local
 
 ### Большие вендорные бинарники
 **/pandoc/bin/pandoc
 **/electron/dist/Electron.app/
 **/Electron Framework.framework/
+**/pandoc/bin/*.exe
+**/pandoc/bin/*.dll
 
-### Локальные оверрайды
-docker-compose.override.yml
-*.local.yml
-*.local.yaml
+### Мониторинг (локальные данные)
+monitoring/prometheus/data/
+monitoring/grafana/data/
+
+### SSL сертификаты
+*.crt
+*.key
+*.pem
+*.csr
+ssl/
+certs/
+certificates/
 
 ### Потенциально чувствительные документы
 SERVER_INFO.md
+*_INFO.md
+*_SECRETS.md
+*_PASSWORDS.md
+
+### Git
+*.orig
+*.rej
+*.patch
+
+### Другие
+.turbo/
+.vercel/
+.netlify/
+.cache/
+temp/
+tmp/
+*.lock
+*.lockb

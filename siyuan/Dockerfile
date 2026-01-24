@@ -13,7 +13,13 @@ RUN corepack enable && \
     pnpm install --silent
 
 COPY app/ .
-RUN pnpm run build && \
+RUN mkdir -p /tmp/appearance-icons && \
+    if [ -d appearance/icons ]; then cp -r appearance/icons /tmp/appearance-icons/; fi && \
+    pnpm run build && \
+    if [ -d /tmp/appearance-icons/icons ]; then \
+        mkdir -p appearance/icons && \
+        cp -r /tmp/appearance-icons/icons/* appearance/icons/; \
+    fi && \
     mkdir /artifacts && \
     mv appearance stage guide changelogs /artifacts/
 

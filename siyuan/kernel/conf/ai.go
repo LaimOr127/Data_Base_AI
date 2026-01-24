@@ -130,14 +130,18 @@ func NewAI() *AI {
 		APIKey:         "AIzaSyCby8forvtNvqZYBCJozW-VlI0GuUQrE4A", // API ключ по умолчанию
 	}
 
-	// Инициализация Ollama с облачной моделью nemotron-3-nano:30b-cloud
+	// Инициализация Ollama с облачной моделью deepseek-v3.1:671b-cloud
 	// Облачная модель работает через локальный Ollama сервер, но выполняется в облаке
+	ollamaBaseURL := "http://localhost:11434" // По умолчанию локальный сервер
+	if baseURL := os.Getenv("OLLAMA_API_BASE"); "" != baseURL {
+		ollamaBaseURL = baseURL // Используем переменную окружения для Docker сети
+	}
 	ollama := &Ollama{
 		APITemperature: 1.0,
 		APIMaxContexts: 7,
 		APITimeout:     30,
-		APIModel:       "nemotron-3-nano:30b-cloud", // Облачная модель из каталога Ollama
-		APIBaseURL:     "http://localhost:11434",    // Локальный Ollama сервер
+		APIModel:       "deepseek-v3.1:671b-cloud", // Облачная модель из каталога Ollama
+		APIBaseURL:     ollamaBaseURL,
 		APIMaxTokens:   0,
 		APIKey:         "", // Не требуется для локального Ollama
 	}

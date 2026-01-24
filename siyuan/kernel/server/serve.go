@@ -617,6 +617,21 @@ func serveWebSocket(ginServer *gin.Engine) {
 						workspaceSess := util.GetWorkspaceSession(sess)
 						authOk = workspaceSess.AccessAuthCode == model.Conf.AccessAuthCode
 						if !authOk {
+							// Fallback: allow websocket for logged-in users (role-based)
+							if workspaceSess.UserLogin != "" {
+								if account := model.GetBasicAuthAccount(workspaceSess.UserLogin); account != nil && account.Username != "" {
+									if model.IsValidRole(account.Role, []model.Role{
+										model.RoleAdministrator,
+										model.RoleEditor,
+										model.RoleReader,
+									}) {
+										authOk = true
+										logging.LogInfof("[WS] authenticated via session user [%s]", workspaceSess.UserLogin)
+									}
+								}
+							}
+						}
+						if !authOk {
 							logging.LogWarnf("[WS] AccessAuthCode mismatch: expected [%s], got [%s]", model.Conf.AccessAuthCode, workspaceSess.AccessAuthCode)
 						}
 					}
@@ -892,6 +907,7 @@ func metricsMiddleware() gin.HandlerFunc {
 		// Если была ошибка, увеличиваем счетчик ошибок
 		if c.Writer.Status() >= 400 {
 			util.IncHTTPErrors()
+		logging.LogWarnf("[HTTP] %d %s %s", c.Writer.Status(), c.Request.Method, c.Request.URL.Path)
 		}
 	}
 }
